@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KHO HỌC LIỆU SỐ – TRÒ CHƠI TƯƠNG TÁC - BÀI GIẢNG ĐIỆN TỬ </title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lop1: #4FC3F7;
+  --lop1-dark: #0288D1;
+  --lop1-grad: linear-gradient(135deg, #B3E5FC, #4FC3F7, #0288D1);
+  --lop2: #42A5F5;
+  --lop2-dark: #1565C0;
+  --lop2-grad: linear-gradient(135deg, #90CAF9, #42A5F5, #1565C0);
+  --lop3: #1E88E5;
+  --lop3-dark: #0D47A1;
+  --lop3-grad: linear-gradient(135deg, #64B5F6, #1E88E5, #0D47A1);
+  --lop4: #7E57C2;
+  --lop4-dark: #4527A0;
+  --lop4-grad: linear-gradient(135deg, #B39DDB, #7E57C2, #4527A0);
+  --lop5: #FF7043;
+  --lop5-dark: #D84315;
+  --lop5-grad: linear-gradient(135deg, #FFAB91, #FF7043, #D84315);
+  --bg-main: #F0F4FF;
+  --text-dark: #1b2a4a;
+  --text-medium: #2c3e6b;
+  --white: #ffffff;
+  --shadow-soft: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-card: 0 8px 32px rgba(0,0,0,0.1);
+  --shadow-hover: 0 12px 40px rgba(0,0,0,0.15);
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Quicksand', 'Nunito', sans-serif;
+  background: var(--bg-main);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* ===== FLOATING SHAPES BG ===== */
+.bg-shapes {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.bg-shapes span {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  opacity: 0.06;
+  animation: floatShape 20s infinite ease-in-out;
+}
+.bg-shapes span:nth-child(1) { width: 300px; height: 300px; background: var(--lop1); top: 10%; left: -5%; animation-delay: 0s; }
+.bg-shapes span:nth-child(2) { width: 200px; height: 200px; background: var(--lop4); top: 60%; right: -3%; animation-delay: 4s; }
+.bg-shapes span:nth-child(3) { width: 250px; height: 250px; background: var(--lop5); bottom: 5%; left: 30%; animation-delay: 8s; }
+.bg-shapes span:nth-child(4) { width: 180px; height: 180px; background: var(--lop2); top: 30%; right: 20%; animation-delay: 12s; border-radius: 30%; }
+.bg-shapes span:nth-child(5) { width: 150px; height: 150px; background: var(--lop3); top: 70%; left: 10%; animation-delay: 6s; border-radius: 40%; }
+
+@keyframes floatShape {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  33% { transform: translateY(-30px) rotate(5deg); }
+  66% { transform: translateY(20px) rotate(-3deg); }
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== HEADER ===== */
+.hero {
+  background: linear-gradient(135deg, #1a73e8 0%, #4a90d9 20%, #5b9bd5 40%, #7ec8e3 65%, #a8d8ea 85%, #c5e8f7 100%);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 40%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 80px;
+  background: var(--bg-main);
+  clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-deco {
+  position: absolute;
+  font-size: 60px;
+  opacity: 0.15;
+  animation: spinSlow 20s linear infinite;
+}
+.hero-deco:nth-child(1) { top: 20px; left: 5%; font-size: 50px; animation-delay: 0s; }
+.hero-deco:nth-child(2) { top: 60%; right: 8%; font-size: 70px; animation-delay: 3s; }
+.hero-deco:nth-child(3) { bottom: 80px; left: 15%; font-size: 45px; animation-delay: 6s; }
+.hero-deco:nth-child(4) { top: 30%; left: 80%; font-size: 55px; animation-delay: 9s; }
+.hero-deco:nth-child(5) { top: 10%; right: 25%; font-size: 40px; animation-delay: 2s; }
+.hero-deco:nth-child(6) { bottom: 100px; right: 30%; font-size: 65px; animation-delay: 5s; }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+  padding: 60px 20px 90px;
+}
+.hero-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.3);
+  padding: 8px 24px;
+  border-radius: 50px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  animation: fadeInDown 0.8s ease;
+}
+.hero h1 {
+  font-family: 'Baloo 2', 'Nunito', sans-serif;
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  margin-bottom: 12px;
+  line-height: 1.2;
+  animation: fadeInDown 0.8s ease 0.1s both;
+}
+.hero h1 .emoji-icon {
+  display: inline-block;
+  animation: bounce 2s infinite;
+}
+.hero h2 {
+  font-family: 'Quicksand', sans-serif;
+  font-size: clamp(18px, 2.5vw, 26px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.95);
+  margin-bottom: 16px;
+  animation: fadeInDown 0.8s ease 0.2s both;
+}
+.hero p {
+  font-size: clamp(14px, 1.5vw, 17px);
+  color: rgba(255,255,255,0.85);
+  max-width: 750px;
+  margin: 0 auto;
+  line-height: 1.7;
+  animation: fadeInDown 0.8s ease 0.3s both;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* ===== MENU TRÒ CHƠI ===== */
+.game-menu {
+  padding: 50px 0 30px;
+}
+.section-title {
+  text-align: center;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: clamp(24px, 3.5vw, 38px);
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+.section-title .icon { margin-right: 10px; }
+.section-subtitle {
+  text-align: center;
+  color: var(--text-medium);
+  font-size: 16px;
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 14px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.menu-item {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 18px 8px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.menu-item::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--item-color, var(--lop1));
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s ease;
+}
+.menu-item:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--item-color, var(--lop1));
+}
+.menu-item:hover::before { height: 6px; }
+.menu-icon {
+  font-size: 34px;
+  margin-bottom: 8px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+.menu-item:hover .menu-icon { transform: scale(1.15) rotate(-5deg); }
+.menu-label {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-dark);
+}
+
+/* ===== ĐẤU TRƯỜNG TRI THỨC ===== */
+.arena {
+  padding: 40px 0;
+}
+.arena-card {
+  background: linear-gradient(135deg, #7B68AE 0%, #8674B8 30%, #9580C2 60%, #7B68AE 100%);
+  border-radius: var(--radius-xl);
+  padding: 50px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(123, 104, 174, 0.3);
+}
+.arena-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background:
+    radial-gradient(circle at 15% 85%, rgba(255,255,255,0.15) 0%, transparent 50%),
+    radial-gradient(circle at 85% 15%, rgba(255,255,255,0.1) 0%, transparent 40%);
+}
+.arena-card * { position: relative; z-index: 1; }
+
+.arena-stars {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.arena-stars span {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0.15;
+  animation: twinkle 3s infinite;
+}
+.arena-stars span:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+.arena-stars span:nth-child(2) { top: 20%; right: 10%; animation-delay: 0.5s; font-size: 18px; }
+.arena-stars span:nth-child(3) { bottom: 15%; left: 15%; animation-delay: 1s; font-size: 30px; }
+.arena-stars span:nth-child(4) { top: 50%; right: 5%; animation-delay: 1.5s; }
+.arena-stars span:nth-child(5) { bottom: 30%; right: 25%; animation-delay: 2s; font-size: 20px; }
+.arena-stars span:nth-child(6) { top: 15%; left: 40%; animation-delay: 0.8s; font-size: 16px; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; transform: scale(1); }
+  50% { opacity: 0.35; transform: scale(1.3); }
+}
+
+.arena-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+  display: block;
+  animation: bounce 2s infinite;
+}
+.arena-card h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: clamp(28px, 4vw, 42px);
+  color: white;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.2);
+  margin-bottom: 8px;
+}
+.arena-card h3 {
+  font-size: clamp(16px, 2vw, 22px);
+  color: rgba(255,255,255,0.95);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.arena-card p {
+  color: rgba(255,255,255,0.9);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto 28px;
+}
+.arena-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+.arena-stat {
+  text-align: center;
+  color: white;
+}
+.arena-stat .num {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 36px;
+  font-weight: 800;
+  display: block;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+.arena-stat .label {
+  font-size: 13px;
+  opacity: 0.9;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.btn-arena {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  color: #7B68AE;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  padding: 16px 48px;
+  border-radius: 60px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.btn-arena:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+}
+.btn-arena .arrow {
+  font-size: 24px;
+  transition: transform 0.3s;
+}
+.btn-arena:hover .arrow { transform: translateX(5px); }
+
+/* ===== NỘI DUNG GIỚI THIỆU ===== */
+.intro-section {
+  padding: 50px 0;
+}
+.intro-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  padding: 50px 40px;
+  box-shadow: var(--shadow-card);
+  position: relative;
+  overflow: hidden;
+}
+.intro-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 6px;
+  height: 100%;
+  background: linear-gradient(to bottom, #1a73e8, #5b9bd5, #7ec8e3);
+  border-radius: 6px 0 0 6px;
+}
+.intro-card h2 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: clamp(22px, 3vw, 32px);
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  padding-left: 20px;
+}
+.intro-text {
+  padding-left: 20px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text-medium);
+}
+.intro-text p {
+  margin-bottom: 16px;
+}
+.intro-text strong {
+  color: var(--text-dark);
+}
+.intro-highlights {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  margin-top: 30px;
+  padding-left: 20px;
+}
+.intro-highlight {
+  background: linear-gradient(135deg, #f8f9ff 0%, #e8ecff 100%);
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  transition: transform 0.3s ease;
+}
+.intro-highlight:hover { transform: translateY(-3px); }
+.intro-highlight .ih-icon {
+  font-size: 32px;
+  flex-shrink: 0;
+}
+.intro-highlight .ih-text {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+/* ===== DANH MỤC KHỐI LỚP ===== */
+.class-section {
+  padding: 40px 0 20px;
+}
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 28px;
+  margin-top: 10px;
+}
+
+.class-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.class-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.class-card-header {
+  padding: 28px 28px 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.class-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 90% 10%, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+.class-card-header .class-label {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.class-card-header h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  position: relative;
+}
+.class-card-header .class-emoji {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  opacity: 0.3;
+}
+
+.class-card-body {
+  padding: 24px 28px 28px;
+}
+
+.subject-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+.subject-tag {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.class-stats {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 14px 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.class-stat {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-medium);
+}
+.class-stat .cs-icon { font-size: 18px; }
+.class-stat .cs-num {
+  font-weight: 800;
+  color: var(--text-dark);
+  font-size: 18px;
+}
+
+.class-actions {
+  display: flex;
+  gap: 12px;
+}
+.btn-view {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: 2px solid #e0e0e0;
+  background: transparent;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-view:hover {
+  border-color: var(--text-medium);
+  background: #f5f5f5;
+}
+.btn-play {
+  flex: 1;
+  padding: 12px 20px;
+  border-radius: 14px;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.btn-play:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+/* Color classes */
+.lop1 .class-card-header { background: var(--lop1-grad); }
+.lop1 .subject-tag { background: #E1F5FE; color: var(--lop1-dark); }
+.lop1 .btn-play { background: var(--lop1-grad); }
+
+.lop2 .class-card-header { background: var(--lop2-grad); }
+.lop2 .subject-tag { background: #E3F2FD; color: var(--lop2-dark); }
+.lop2 .btn-play { background: var(--lop2-grad); }
+
+.lop3 .class-card-header { background: var(--lop3-grad); }
+.lop3 .subject-tag { background: #E3F2FD; color: var(--lop3-dark); }
+.lop3 .btn-play { background: var(--lop3-grad); }
+
+.lop4 .class-card-header { background: var(--lop4-grad); }
+.lop4 .subject-tag { background: #EDE7F6; color: var(--lop4-dark); }
+.lop4 .btn-play { background: var(--lop4-grad); }
+
+.lop5 .class-card-header { background: var(--lop5-grad); }
+.lop5 .subject-tag { background: #FBE9E7; color: var(--lop5-dark); }
+.lop5 .btn-play { background: var(--lop5-grad); }
+
+/* ===== FOOTER ===== */
+.footer {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  padding: 50px 0 30px;
+  margin-top: 50px;
+  position: relative;
+  overflow: hidden;
+}
+.footer::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: 0; right: 0;
+  height: 80px;
+  background: var(--bg-main);
+  clip-path: ellipse(55% 100% at 50% 0%);
+}
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 40px;
+  color: rgba(255,255,255,0.7);
+  font-size: 14px;
+  padding-top: 30px;
+}
+.footer h4 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 16px;
+}
+.footer a {
+  color: rgba(255,255,255,0.7);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.footer a:hover { color: white; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 10px; }
+.footer-links li::before { content: '›  '; color: #9B7EC8; font-weight: 700; }
+.footer-bottom {
+  text-align: center;
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.4);
+  font-size: 13px;
+}
+
+/* ===== SCROLL ANIMATIONS ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  max-width: 900px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+  animation: modalIn 0.4s ease;
+}
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.modal-header {
+  padding: 28px 32px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+}
+.modal-header h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 22px;
+}
+.modal-close {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.3); }
+.modal-body { padding: 32px; }
+.modal-game-list {
+  list-style: none;
+}
+.modal-game-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  transition: background 0.3s;
+  margin-bottom: 8px;
+}
+.modal-game-item:hover { background: #f5f7ff; }
+.modal-game-item .mgi-num {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 14px;
+  color: white;
+  flex-shrink: 0;
+}
+.modal-game-item .mgi-info h4 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2px;
+}
+.modal-game-item .mgi-info p {
+  font-size: 13px;
+  color: var(--text-medium);
+}
+
+/* ===== BACK TO TOP ===== */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a73e8, #5b9bd5);
+  color: white;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(26, 115, 232, 0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+.back-to-top.show { display: flex; }
+.back-to-top:hover { transform: translateY(-4px) scale(1.1); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .menu-grid { grid-template-columns: repeat(7, 1fr); gap: 8px; }
+  .menu-item { padding: 14px 4px; }
+  .menu-icon { font-size: 28px; }
+  .menu-label { font-size: 11px; }
+  .class-grid { grid-template-columns: 1fr; }
+  .arena-card { padding: 36px 24px; }
+  .arena-stats { gap: 24px; }
+  .intro-card { padding: 36px 24px; }
+  .intro-highlights { grid-template-columns: 1fr; }
+  .footer-content { grid-template-columns: 1fr; }
+  .btn-arena { font-size: 18px; padding: 14px 36px; }
+}
+@media (max-width: 480px) {
+  .menu-grid { grid-template-columns: repeat(7, 1fr); gap: 6px; }
+  .hero-content { padding: 40px 16px 70px; }
+  .class-actions { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background Shapes -->
+<div class="bg-shapes">
+  <span></span><span></span><span></span><span></span><span></span>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="hero">
+  <div class="hero-deco">📚</div>
+  <div class="hero-deco">🎮</div>
+  <div class="hero-deco">⭐</div>
+  <div class="hero-deco">🧩</div>
+  <div class="hero-deco">🎯</div>
+  <div class="hero-deco">🏆</div>
+  <div class="hero-content">
+    <div class="hero-badge">🏫 Chương trình GDPT 2018</div>
+    <h1><span class="emoji-icon">🎮</span> KHO HỌC LIỆU SỐ<br>TRÒ CHƠI TƯƠNG TÁC</h1>
+    <h2>✨ Kết nối tri thức với cuộc sống ✨</h2>
+    <p>Hệ thống trò chơi học tập số dành cho dạy học trên lớp – sinh động, dễ sử dụng, tăng hứng thú học tập cho học sinh Tiểu học. Hỗ trợ giáo viên tổ chức hoạt động dạy học hiệu quả theo Chương trình GDPT 2018.</p>
+  </div>
+</header>
+
+<!-- ===== MENU TRÒ CHƠI ===== -->
+<section class="game-menu container">
+  <h2 class="section-title reveal"><span class="icon">🎯</span>Thể Loại Trò Chơi</h2>
+  <p class="section-subtitle reveal">Chọn thể loại trò chơi phù hợp với hoạt động dạy học</p>
+  <div class="menu-grid">
+    <div class="menu-item reveal" style="--item-color: #E91E63;">
+      <span class="menu-icon">🧩</span>
+      <span class="menu-label">Ghép nối</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #FF9800;">
+      <span class="menu-icon">⚡</span>
+      <span class="menu-label">Tốc độ</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #4CAF50;">
+      <span class="menu-icon">🏎️</span>
+      <span class="menu-label">Đua xe</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #9C27B0;">
+      <span class="menu-icon">🎡</span>
+      <span class="menu-label">Vòng quay</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #2196F3;">
+      <span class="menu-icon">🧠</span>
+      <span class="menu-label">Trí tuệ</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #00BCD4;">
+      <span class="menu-icon">🛒</span>
+      <span class="menu-label">Mua sắm</span>
+    </div>
+    <div class="menu-item reveal" style="--item-color: #FF5722;">
+      <span class="menu-icon">🗺️</span>
+      <span class="menu-label">Phiêu lưu</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ĐẤU TRƯỜNG TRI THỨC ===== -->
+<section class="arena container">
+  <div class="arena-card reveal">
+    <div class="arena-stars">
+      <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span>
+    </div>
+    <span class="arena-icon">🏆</span>
+    <h2>ĐẤU TRƯỜNG TRI THỨC</h2>
+    <h3>🎓 Trạng Nguyên Nhí</h3>
+    <p>Thử thách bản thân với hơn 1000 câu Toán và 1000 câu Tiếng Việt và 300 câu Tiếng Anh ở nhiều cấp độ khác nhau. Vượt qua từng vòng thi để trở thành Trạng Nguyên Nhí!</p>
+    <div class="arena-stats">
+      <div class="arena-stat">
+        <span class="num">1000+</span>
+        <span class="label">Câu Toán</span>
+      </div>
+      <div class="arena-stat">
+        <span class="num">1000+</span>
+        <span class="label">Câu Tiếng Việt</span>
+      </div>
+      <div class="arena-stat">
+        <span class="num">300</span>
+        <span class="label">Câu Tiếng Anh</span>
+      </div>
+      <div class="arena-stat">
+        <span class="num">5</span>
+        <span class="label">Cấp độ</span>
+      </div>
+    </div>
+    <a href="https://hososotruonghoc.github.io/EduPlay/" target="_blank" class="btn-arena" style="text-decoration:none;">
+      VÀO ĐẤU TRƯỜNG <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<!-- ===== NỘI DUNG GIỚI THIỆU ===== -->
+<section class="intro-section container">
+  <div class="intro-card reveal">
+    <h2>📖 Giới thiệu Kho Học Liệu Số</h2>
+    <div class="intro-text">
+      <p>Trong bối cảnh chuyển đổi số đang diễn ra mạnh mẽ trên mọi lĩnh vực, ngành Giáo dục và Đào tạo đặt ra yêu cầu cấp thiết về việc <strong>ứng dụng công nghệ thông tin, xây dựng và khai thác hiệu quả các nguồn học liệu số</strong> phục vụ dạy học và quản lý giáo dục.</p>
+      <p><strong>Kho Học Liệu Số – Trò Chơi Tương Tác</strong> được xây dựng nhằm đáp ứng yêu cầu đổi mới phương pháp dạy học theo <strong>Chương trình Giáo dục phổ thông 2018</strong>, hướng tới phát triển phẩm chất và năng lực người học. Hệ thống cung cấp các trò chơi học tập được thiết kế khoa học, bám sát nội dung chương trình, giúp học sinh tiếp cận kiến thức một cách <strong>sinh động, hấp dẫn và hiệu quả</strong>.</p>
+      <p>Với phương châm <em>"Học mà chơi – Chơi mà học"</em>, hệ thống không chỉ hỗ trợ giáo viên tổ chức các hoạt động dạy học trên lớp một cách linh hoạt, sáng tạo, mà còn tạo điều kiện để học sinh tự ôn luyện, củng cố kiến thức tại nhà. Qua đó, góp phần <strong>nâng cao chất lượng giáo dục, phát huy tính tích cực, chủ động, sáng tạo của học sinh</strong>, đồng thời thúc đẩy quá trình chuyển đổi số trong nhà trường một cách thiết thực và bền vững.</p>
+    </div>
+    <div class="intro-highlights">
+      <div class="intro-highlight">
+        <span class="ih-icon">🖥️</span>
+        <span class="ih-text">Chuyển đổi số trong dạy học và quản lý giáo dục</span>
+      </div>
+      <div class="intro-highlight">
+        <span class="ih-icon">🔄</span>
+        <span class="ih-text">Đổi mới phương pháp dạy học theo CT GDPT 2018</span>
+      </div>
+      <div class="intro-highlight">
+        <span class="ih-icon">🌟</span>
+        <span class="ih-text">Phát triển phẩm chất, năng lực cho học sinh</span>
+      </div>
+      <div class="intro-highlight">
+        <span class="ih-icon">🎮</span>
+        <span class="ih-text">Tăng hứng thú học tập qua trò chơi tương tác</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DANH MỤC KHỐI LỚP ===== -->
+<section class="class-section container">
+  <h2 class="section-title reveal"><span class="icon">📚</span>Danh Mục Theo Khối Lớp</h2>
+  <p class="section-subtitle reveal">Chọn khối lớp để khám phá kho trò chơi phong phú</p>
+  <div class="class-grid">
+
+    <!-- LỚP 1 -->
+    <div class="class-card lop1 reveal">
+      <div class="class-card-header">
+        <span class="class-emoji">🌱</span>
+        <span class="class-label">Khối lớp 1</span>
+        <h3>Trò chơi tương tác – LỚP 1</h3>
+      </div>
+      <div class="class-card-body">
+        <div class="subject-tags">
+          <span class="subject-tag">📐 Toán</span>
+          <span class="subject-tag">📖 Tiếng Việt</span>
+          <span class="subject-tag">🔤 Tiếng Anh</span>
+          <span class="subject-tag">🌍 TNXH</span>
+        </div>
+        <div class="class-stats">
+          <div class="class-stat">
+            <span class="cs-icon">🎮</span>
+            <span class="cs-num">25</span> trò chơi
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📂</span>
+            <span class="cs-num">8</span> chủ đề
+          </div>
+        </div>
+        <div class="class-actions">
+          <button class="btn-view" onclick="openModal(1)">📋 Xem danh sách</button>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop1" target="_blank" style="text-decoration:none;">🎮 CHƠI NGAY</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LỚP 2 -->
+    <div class="class-card lop2 reveal">
+      <div class="class-card-header">
+        <span class="class-emoji">🌿</span>
+        <span class="class-label">Khối lớp 2</span>
+        <h3>Trò chơi tương tác – LỚP 2</h3>
+      </div>
+      <div class="class-card-body">
+        <div class="subject-tags">
+          <span class="subject-tag">📐 Toán</span>
+          <span class="subject-tag">📖 Tiếng Việt</span>
+          <span class="subject-tag">🔤 Tiếng Anh</span>
+          <span class="subject-tag">🌍 TNXH</span>
+        </div>
+        <div class="class-stats">
+          <div class="class-stat">
+            <span class="cs-icon">🎮</span>
+            <span class="cs-num">30</span> trò chơi
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📂</span>
+            <span class="cs-num">10</span> chủ đề
+          </div>
+        </div>
+        <div class="class-actions">
+          <button class="btn-view" onclick="openModal(2)">📋 Xem danh sách</button>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop2" target="_blank" style="text-decoration:none;">🎮 CHƠI NGAY</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LỚP 3 -->
+    <div class="class-card lop3 reveal">
+      <div class="class-card-header">
+        <span class="class-emoji">🌳</span>
+        <span class="class-label">Khối lớp 3</span>
+        <h3>Trò chơi tương tác – LỚP 3</h3>
+      </div>
+      <div class="class-card-body">
+        <div class="subject-tags">
+          <span class="subject-tag">📐 Toán</span>
+          <span class="subject-tag">📖 Tiếng Việt</span>
+          <span class="subject-tag">🔤 Tiếng Anh</span>
+          <span class="subject-tag">🌍 TNXH</span>
+        </div>
+        <div class="class-stats">
+          <div class="class-stat">
+            <span class="cs-icon">🎮</span>
+            <span class="cs-num">35</span> trò chơi
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📂</span>
+            <span class="cs-num">12</span> chủ đề
+          </div>
+        </div>
+        <div class="class-actions">
+          <button class="btn-view" onclick="openModal(3)">📋 Xem danh sách</button>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop3" target="_blank" style="text-decoration:none;">🎮 CHƠI NGAY</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LỚP 4 -->
+    <div class="class-card lop4 reveal">
+      <div class="class-card-header">
+        <span class="class-emoji">🌲</span>
+        <span class="class-label">Khối lớp 4</span>
+        <h3>Trò chơi tương tác – LỚP 4</h3>
+      </div>
+      <div class="class-card-body">
+        <div class="subject-tags">
+          <span class="subject-tag">📐 Toán</span>
+          <span class="subject-tag">📖 Tiếng Việt</span>
+          <span class="subject-tag">🔤 Tiếng Anh</span>
+          <span class="subject-tag">🔬 Khoa học</span>
+          <span class="subject-tag">🗺️ Lịch sử & Địa lý</span>
+        </div>
+        <div class="class-stats">
+          <div class="class-stat">
+            <span class="cs-icon">🎮</span>
+            <span class="cs-num">40</span> trò chơi
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📂</span>
+            <span class="cs-num">15</span> chủ đề
+          </div>
+        </div>
+        <div class="class-actions">
+          <button class="btn-view" onclick="openModal(4)">📋 Xem danh sách</button>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop4" target="_blank" style="text-decoration:none;">🎮 CHƠI NGAY</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LỚP 5 -->
+    <div class="class-card lop5 reveal">
+      <div class="class-card-header">
+        <span class="class-emoji">🌟</span>
+        <span class="class-label">Khối lớp 5</span>
+        <h3>Trò chơi tương tác – LỚP 5</h3>
+      </div>
+      <div class="class-card-body">
+        <div class="subject-tags">
+          <span class="subject-tag">📐 Toán</span>
+          <span class="subject-tag">📖 Tiếng Việt</span>
+          <span class="subject-tag">🔤 Tiếng Anh</span>
+          <span class="subject-tag">🔬 Khoa học</span>
+          <span class="subject-tag">🗺️ Lịch sử & Địa lý</span>
+        </div>
+        <div class="class-stats">
+          <div class="class-stat">
+            <span class="cs-icon">🎮</span>
+            <span class="cs-num">45</span> trò chơi
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📂</span>
+            <span class="cs-num">18</span> chủ đề
+          </div>
+        </div>
+        <div class="class-actions">
+          <button class="btn-view" onclick="openModal(5)">📋 Xem danh sách</button>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtac" target="_blank" style="text-decoration:none;">🎮 CHƠI NGAY</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div>
+        <h4>🎮 Kho Học Liệu Số</h4>
+        <p style="line-height:1.8">Hệ thống trò chơi học tập tương tác dành cho học sinh Tiểu học, hỗ trợ dạy học theo Chương trình GDPT 2018.</p>
+      </div>
+      <div>
+        <h4>📚 Khối lớp</h4>
+        <ul class="footer-links">
+          <li><a href="https://hososotruonghoc.github.io/gametuongtaclop1" target="_blank">Trò chơi Lớp 1</a></li>
+          <li><a href="https://hososotruonghoc.github.io/gametuongtaclop2" target="_blank">Trò chơi Lớp 2</a></li>
+          <li><a href="https://hososotruonghoc.github.io/gametuongtaclop3" target="_blank">Trò chơi Lớp 3</a></li>
+          <li><a href="https://hososotruonghoc.github.io/gametuongtaclop4" target="_blank">Trò chơi Lớp 4</a></li>
+          <li><a href="https://hososotruonghoc.github.io/gametuongtac" target="_blank">Trò chơi Lớp 5</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>🔗 Liên kết</h4>
+        <ul class="footer-links">
+          <li><a href="#">Hướng dẫn sử dụng</a></li>
+          <li><a href="#">Chương trình GDPT 2018</a></li>
+          <li><a href="#">Tài liệu giáo viên</a></li>
+          <li><a href="#">Liên hệ hỗ trợ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Game Vui học. Thiết kế Chung Trần</p>
+      <p style="margin-top:6px">Zalo 0913 031 073</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== BACK TO TOP ===== -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ===== MODAL ===== -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+  <div class="modal" onclick="event.stopPropagation()">
+    <div class="modal-header" id="modalHeader">
+      <h3 id="modalTitle">Danh sách trò chơi</h3>
+      <button class="modal-close" onclick="document.getElementById('modalOverlay').classList.remove('active')">✕</button>
+    </div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+// ===== GAME DATA =====
+const gameData = {
+  1: [
+    { name: 'Ghép số với hình ảnh', subject: 'Toán', type: 'Ghép nối' },
+    { name: 'Đếm và chọn đáp án', subject: 'Toán', type: 'Tốc độ' },
+    { name: 'Phép cộng trong phạm vi 10', subject: 'Toán', type: 'Đua xe' },
+    { name: 'Nhận biết chữ cái', subject: 'Tiếng Việt', type: 'Ghép nối' },
+    { name: 'Ghép vần đơn giản', subject: 'Tiếng Việt', type: 'Trí tuệ' },
+    { name: 'Đọc từ và chọn hình', subject: 'Tiếng Việt', type: 'Mua sắm' },
+    { name: 'Hello! What\'s your name?', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
+    { name: 'Khám phá thiên nhiên', subject: 'TNXH', type: 'Phiêu lưu' },
+  ],
+  2: [
+    { name: 'Phép nhân bảng 2, 3, 4, 5', subject: 'Toán', type: 'Tốc độ' },
+    { name: 'So sánh số có hai chữ số', subject: 'Toán', type: 'Đua xe' },
+    { name: 'Hình học cơ bản', subject: 'Toán', type: 'Ghép nối' },
+    { name: 'Điền vần, điền từ', subject: 'Tiếng Việt', type: 'Trí tuệ' },
+    { name: 'Sắp xếp câu đúng', subject: 'Tiếng Việt', type: 'Ghép nối' },
+    { name: 'Colors and Numbers', subject: 'Tiếng Anh', type: 'Vòng quay' },
+    { name: 'My Family', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
+    { name: 'Động vật quanh ta', subject: 'TNXH', type: 'Mua sắm' },
+  ],
+  3: [
+    { name: 'Phép chia có dư', subject: 'Toán', type: 'Tốc độ' },
+    { name: 'Chu vi hình chữ nhật', subject: 'Toán', type: 'Trí tuệ' },
+    { name: 'Giải toán có lời văn', subject: 'Toán', type: 'Phiêu lưu' },
+    { name: 'Đọc hiểu đoạn văn', subject: 'Tiếng Việt', type: 'Trí tuệ' },
+    { name: 'Từ loại tiếng Việt', subject: 'Tiếng Việt', type: 'Ghép nối' },
+    { name: 'Animals and Food', subject: 'Tiếng Anh', type: 'Mua sắm' },
+    { name: 'Thực vật và môi trường', subject: 'TNXH', type: 'Phiêu lưu' },
+  ],
+  4: [
+    { name: 'Phân số và so sánh', subject: 'Toán', type: 'Đua xe' },
+    { name: 'Diện tích hình bình hành', subject: 'Toán', type: 'Trí tuệ' },
+    { name: 'Trung bình cộng', subject: 'Toán', type: 'Tốc độ' },
+    { name: 'Luyện từ và câu', subject: 'Tiếng Việt', type: 'Ghép nối' },
+    { name: 'Viết đoạn văn ngắn', subject: 'Tiếng Việt', type: 'Trí tuệ' },
+    { name: 'My School', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
+    { name: 'Hệ tiêu hóa', subject: 'Khoa học', type: 'Ghép nối' },
+    { name: 'Lịch sử nước ta', subject: 'Lịch sử & Địa lý', type: 'Vòng quay' },
+  ],
+  5: [
+    { name: 'Số thập phân', subject: 'Toán', type: 'Tốc độ' },
+    { name: 'Tỉ số phần trăm', subject: 'Toán', type: 'Đua xe' },
+    { name: 'Hình hộp chữ nhật', subject: 'Toán', type: 'Trí tuệ' },
+    { name: 'Tập làm văn tả cảnh', subject: 'Tiếng Việt', type: 'Trí tuệ' },
+    { name: 'Câu ghép và dấu câu', subject: 'Tiếng Việt', type: 'Ghép nối' },
+    { name: 'My Hobbies', subject: 'Tiếng Anh', type: 'Vòng quay' },
+    { name: 'Năng lượng và biến đổi', subject: 'Khoa học', type: 'Phiêu lưu' },
+    { name: 'Địa lý Việt Nam', subject: 'Lịch sử & Địa lý', type: 'Mua sắm' },
+  ]
+};
+
+const classColors = {
+  1: 'var(--lop1-grad)',
+  2: 'var(--lop2-grad)',
+  3: 'var(--lop3-grad)',
+  4: 'var(--lop4-grad)',
+  5: 'var(--lop5-grad)',
+};
+const classSolid = {
+  1: 'var(--lop1)',
+  2: 'var(--lop2)',
+  3: 'var(--lop3)',
+  4: 'var(--lop4)',
+  5: 'var(--lop5)',
+};
+
+// ===== MODAL =====
+function openModal(classNum) {
+  const overlay = document.getElementById('modalOverlay');
+  const header = document.getElementById('modalHeader');
+  const title = document.getElementById('modalTitle');
+  const body = document.getElementById('modalBody');
+
+  header.style.background = classColors[classNum];
+  title.textContent = `Danh sách trò chơi – Lớp ${classNum}`;
+
+  const games = gameData[classNum] || [];
+  let html = '<ul class="modal-game-list">';
+  games.forEach((g, i) => {
+    html += `
+      <li class="modal-game-item">
+        <span class="mgi-num" style="background:${classSolid[classNum]}">${i + 1}</span>
+        <div class="mgi-info">
+          <h4>${g.name}</h4>
+          <p>${g.subject} • ${g.type}</p>
+        </div>
+      </li>`;
+  });
+  html += '</ul>';
+  body.innerHTML = html;
+  overlay.classList.add('active');
+}
+
+function closeModal(e) {
+  if (e.target === e.currentTarget) {
+    document.getElementById('modalOverlay').classList.remove('active');
+  }
+}
+
+// ===== SCROLL REVEAL =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== BACK TO TOP =====
+window.addEventListener('scroll', () => {
+  const btn = document.getElementById('backToTop');
+  if (window.scrollY > 400) btn.classList.add('show');
+  else btn.classList.remove('show');
+});
+
+</script>
+</body>
+</html>
