@@ -1064,7 +1064,7 @@ body {
   box-shadow: var(--shadow-hover);
 }
 .resource-card-header {
-  background: linear-gradient(135deg, #2ecc71, #27ae60, #1abc9c);
+  background: linear-gradient(135deg, #ffc107, #ff9800, #ff6f00);
   padding: 28px 28px 20px;
   color: white;
   position: relative;
@@ -1154,9 +1154,9 @@ body {
   text-decoration: none;
 }
 .resource-grade-btn:hover {
-  background: #27ae60;
+  background: #ff9800;
   color: white;
-  border-color: #27ae60;
+  border-color: #ff9800;
   transform: translateY(-2px);
 }
 .resource-toggle-hint {
@@ -1168,7 +1168,7 @@ body {
   cursor: pointer;
   transition: color 0.3s;
 }
-.resource-toggle-hint:hover { color: #27ae60; }
+.resource-toggle-hint:hover { color: #ff9800; }
 .resource-toggle-hint .arrow-res {
   display: inline-block;
   transition: transform 0.3s ease;
@@ -1183,40 +1183,178 @@ body {
   gap: 18px;
   flex-wrap: wrap;
 }
-.resource-preview-item {
+.ong-vang-module {
+  position: relative;
+  width: 100%;
+  padding: 24px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 14px 12px;
-  background: linear-gradient(135deg, #f0faf4 0%, #e8f5e9 100%);
-  border-radius: 16px;
-  min-width: 90px;
+  gap: 12px;
+  cursor: pointer;
+}
+.ong-vang-scene {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  padding: 12px;
+  border-radius: 20px;
+  transition: background 0.3s ease;
+}
+.ong-vang-scene:hover {
+  background: rgba(255,193,7,0.08);
+}
+.ong-vang-mascot {
+  font-size: 56px;
+  animation: ongBounce 2s infinite ease-in-out;
+  filter: drop-shadow(0 4px 12px rgba(255,193,7,0.4));
+}
+@keyframes ongBounce {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(-5deg); }
+  75% { transform: translateY(-5px) rotate(5deg); }
+}
+.ong-vang-features {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.ong-feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+  border-radius: 14px;
+  min-width: 72px;
+  border: 2px solid rgba(255,193,7,0.2);
   transition: all 0.3s ease;
 }
-.resource-preview-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 20px rgba(39,174,96,0.15);
+.ong-feature:hover {
+  transform: translateY(-3px);
+  border-color: rgba(255,193,7,0.5);
+  box-shadow: 0 4px 15px rgba(255,193,7,0.2);
 }
-.resource-preview-item .rp-icon {
-  font-size: 32px;
-  display: block;
-  animation: gentlePulse 3s infinite ease-in-out;
-}
-.resource-preview-item:nth-child(2) .rp-icon { animation-delay: 0.5s; }
-.resource-preview-item:nth-child(3) .rp-icon { animation-delay: 1s; }
-.resource-preview-item:nth-child(4) .rp-icon { animation-delay: 1.5s; }
-.resource-preview-item:nth-child(5) .rp-icon { animation-delay: 2s; }
-.resource-preview-item .rp-label {
-  font-size: 11px;
+.ong-feature .of-icon { font-size: 24px; }
+.ong-feature .of-label {
+  font-size: 10px;
   font-weight: 700;
-  color: #27ae60;
+  color: #b8860b;
   text-align: center;
   line-height: 1.3;
 }
-@keyframes gentlePulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
+.ong-vang-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #b8860b;
+  text-align: center;
+}
+
+/* Ong Vàng Modal */
+.ong-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.ong-modal-overlay.active { display: flex; }
+.ong-modal {
+  background: var(--white);
+  border-radius: 28px;
+  max-width: 620px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.25);
+  animation: modalIn 0.4s ease;
+  border: 3px solid #ffd54f;
+}
+.ong-modal-header {
+  background: linear-gradient(135deg, #ffd54f 0%, #ffb300 50%, #ff8f00 100%);
+  padding: 28px 32px;
+  text-align: center;
+  border-radius: 25px 25px 0 0;
+  position: relative;
+}
+.ong-modal-header .ong-big {
+  font-size: 64px;
+  display: block;
+  margin-bottom: 8px;
+  animation: ongBounce 2s infinite ease-in-out;
+}
+.ong-modal-header h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  color: #5d4037;
+}
+.ong-modal-header p {
+  font-size: 14px;
+  color: #795548;
+  font-weight: 600;
+  margin-top: 4px;
+}
+.ong-modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  font-size: 18px;
+  cursor: pointer;
+  color: #5d4037;
+  transition: background 0.3s;
+}
+.ong-modal-close:hover { background: rgba(255,255,255,0.5); }
+.ong-modal-body {
+  padding: 32px;
+}
+.ong-modal-body .ong-section {
+  margin-bottom: 20px;
+  padding: 18px;
+  background: linear-gradient(135deg, #fffde7 0%, #fff9c4 100%);
+  border-radius: 16px;
+  border-left: 4px solid #ffc107;
+}
+.ong-modal-body .ong-section:last-child { margin-bottom: 0; }
+.ong-modal-body .ong-section h4 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: #5d4037;
+  margin-bottom: 8px;
+}
+.ong-modal-body .ong-section p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-medium);
+}
+.ong-modal-footer {
+  text-align: center;
+  padding: 20px 32px 28px;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: #ff8f00;
+}
+
+@media (max-width: 768px) {
+  .ong-modal { max-width: 95%; }
+  .ong-modal-body { padding: 20px; }
+  .ong-modal-body .ong-section { padding: 14px; }
 }
 
 /* ===== BACK TO TOP ===== */
@@ -1549,90 +1687,39 @@ body {
       </div>
     </div>
 
-    <!-- TÀI NGUYÊN SỐ -->
+    <!-- TRỢ LÝ ONG VÀNG AI -->
     <div class="resource-card reveal">
       <div class="resource-card-header" onclick="toggleResource()">
-        <span class="class-emoji">📦</span>
-        <span class="class-label">Tài nguyên</span>
-        <h3>Tài nguyên số</h3>
-        <p class="res-sub">Đồ dùng dạy học số, video, hình ảnh minh họa...</p>
-      </div>
-      <div class="resource-toggle-hint" id="resHint" onclick="toggleResource()">
-        Bấm để xem môn học <span class="arrow-res">▼</span>
+        <span class="class-emoji">🐝</span>
+        <span class="class-label">Trợ lý AI</span>
+        <h3>Trợ lý Ong Vàng AI! 🐝🤖</h3>
+        <p class="res-sub">Nâng tầm khảo thí, đơn giản hóa giảng dạy!</p>
       </div>
       <div class="resource-preview">
-        <div class="resource-preview-item">
-          <span class="rp-icon">🎬</span>
-          <span class="rp-label">Video<br>bài giảng</span>
-        </div>
-        <div class="resource-preview-item">
-          <span class="rp-icon">🖼️</span>
-          <span class="rp-label">Hình ảnh<br>minh họa</span>
-        </div>
-        <div class="resource-preview-item">
-          <span class="rp-icon">📊</span>
-          <span class="rp-label">Đồ dùng<br>dạy học</span>
-        </div>
-        <div class="resource-preview-item">
-          <span class="rp-icon">📋</span>
-          <span class="rp-label">Phiếu<br>học tập</span>
-        </div>
-        <div class="resource-preview-item">
-          <span class="rp-icon">🗂️</span>
-          <span class="rp-label">Giáo án<br>điện tử</span>
+        <div class="ong-vang-module">
+          <!-- Mascot & Features -->
+          <div class="ong-vang-scene" onmouseenter="showOngModal()" ontouchstart="showOngModal()">
+            <span class="ong-vang-mascot" id="ongMascot">🐝</span>
+            <div class="ong-vang-features">
+              <div class="ong-feature">
+                <span class="of-icon">📝</span>
+                <span class="of-label">Tạo đề<br>thi số</span>
+              </div>
+              <div class="ong-feature">
+                <span class="of-icon">🤖</span>
+                <span class="of-label">AI chấm<br>bài</span>
+              </div>
+              <div class="ong-feature">
+                <span class="of-icon">📊</span>
+                <span class="of-label">Nhận xét<br>thông minh</span>
+              </div>
+            </div>
+          </div>
+          <div class="ong-vang-title">🐝 Chạm vào Ong Vàng để tìm hiểu!</div>
         </div>
       </div>
-      <div class="resource-body" id="resourceBody">
-        <div class="resource-body-inner">
-
-          <div class="resource-subject">
-            <div class="resource-subject-title">📐 Toán</div>
-            <div class="resource-grades">
-              <a class="resource-grade-btn" href="#">Lớp 1</a>
-              <a class="resource-grade-btn" href="#">Lớp 2</a>
-              <a class="resource-grade-btn" href="#">Lớp 3</a>
-              <a class="resource-grade-btn" href="#">Lớp 4</a>
-              <a class="resource-grade-btn" href="#">Lớp 5</a>
-            </div>
-          </div>
-
-          <div class="resource-subject">
-            <div class="resource-subject-title">📖 Tiếng Việt</div>
-            <div class="resource-grades">
-              <a class="resource-grade-btn" href="#">Lớp 1</a>
-              <a class="resource-grade-btn" href="#">Lớp 2</a>
-              <a class="resource-grade-btn" href="#">Lớp 3</a>
-              <a class="resource-grade-btn" href="#">Lớp 4</a>
-              <a class="resource-grade-btn" href="#">Lớp 5</a>
-            </div>
-          </div>
-
-          <div class="resource-subject">
-            <div class="resource-subject-title">🌍 Tự nhiên và Xã hội</div>
-            <div class="resource-grades">
-              <a class="resource-grade-btn" href="#">Lớp 1</a>
-              <a class="resource-grade-btn" href="#">Lớp 2</a>
-              <a class="resource-grade-btn" href="#">Lớp 3</a>
-            </div>
-          </div>
-
-          <div class="resource-subject">
-            <div class="resource-subject-title">🔬 Khoa học</div>
-            <div class="resource-grades">
-              <a class="resource-grade-btn" href="#">Lớp 4</a>
-              <a class="resource-grade-btn" href="#">Lớp 5</a>
-            </div>
-          </div>
-
-          <div class="resource-subject">
-            <div class="resource-subject-title">🗺️ Lịch sử và Địa lý</div>
-            <div class="resource-grades">
-              <a class="resource-grade-btn" href="#">Lớp 4</a>
-              <a class="resource-grade-btn" href="#">Lớp 5</a>
-            </div>
-          </div>
-
-        </div>
+      <div style="padding:0 28px 24px;text-align:center;">
+        <a href="https://hososotruonghoc.github.io/trolyongvangai" target="_blank" style="display:inline-flex;align-items:center;gap:10px;padding:12px 32px;border-radius:50px;background:linear-gradient(135deg,#ffc107,#ff9800);color:white;font-family:'Nunito',sans-serif;font-size:15px;font-weight:800;text-decoration:none;box-shadow:0 4px 15px rgba(255,152,0,0.35);transition:all 0.3s ease;text-transform:uppercase;letter-spacing:0.5px;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 8px 25px rgba(255,152,0,0.4)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 15px rgba(255,152,0,0.35)'">🐝 Bắt đầu thôi! →</a>
       </div>
     </div>
 
@@ -2190,6 +2277,35 @@ body {
 <!-- ===== BACK TO TOP ===== -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
+<!-- ===== ONG VÀNG MODAL ===== -->
+<div class="ong-modal-overlay" id="ongModalOverlay" onclick="if(event.target===this)this.classList.remove('active')">
+  <div class="ong-modal">
+    <div class="ong-modal-header">
+      <button class="ong-modal-close" onclick="document.getElementById('ongModalOverlay').classList.remove('active')">✕</button>
+      <span class="ong-big">🐝</span>
+      <h3>Trợ lý Ong Vàng AI 🤖</h3>
+      <p>Người bạn đồng hành đặc biệt trong hệ thống khảo thí</p>
+    </div>
+    <div class="ong-modal-body">
+      <div class="ong-section">
+        <h4>✨ Biến Đề Thi Thành Trải Nghiệm Hấp Dẫn</h4>
+        <p>Giáo viên chỉ cần đưa đề kiểm tra cần Khảo thí (bài tập, ôn tập, KTĐK) vào hệ thống. 👋 Từ nội dung ban đầu, Trợ lý Ong Vàng AI sẽ tự động tiếp nhận và hô biến toàn bộ thành một bài kiểm tra kỹ thuật số sinh động, đầy sắc màu và hấp dẫn.</p>
+      </div>
+      <div class="ong-section">
+        <h4>🐝 Ong Vàng Cùng Bạn Làm Bài</h4>
+        <p>Xuyên suốt quá trình học sinh thực hiện bài thi, chú Ong vàng ngộ nghĩnh sẽ luôn xuất hiện, như một lời cổ vũ tinh thần, giúp các em cảm thấy nhẹ nhàng, tự tin và tập trung hơn.</p>
+      </div>
+      <div class="ong-section">
+        <h4>🤖🧑‍🏫 Giải Pháp Chấm Bài Thông Minh & Linh Hoạt</h4>
+        <p>Đừng lo về núi bài tập về nhà hay bài kiểm tra! Việc chấm bài, Trợ lý Ong Vàng AI sẽ hỗ trợ hết! Hệ thống tự động chấm điểm chính xác và nhanh chóng. Tuy nhiên, quyền quyết định cuối cùng vẫn thuộc về giáo viên: Thầy/Cô hoàn toàn có thể chấm lại nếu cần và hệ thống sẽ đưa ra những lời nhận xét thông minh, sâu sắc dựa trên kết quả làm bài để khích lệ và định hướng các em học sinh tốt hơn.</p>
+      </div>
+    </div>
+    <div class="ong-modal-footer">
+      Trợ lý Ong Vàng AI – Nâng tầm khảo thí, đơn giản hóa giảng dạy! 🚀
+    </div>
+  </div>
+</div>
+
 <!-- ===== MODAL ===== -->
 <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
   <div class="modal" onclick="event.stopPropagation()">
@@ -2278,6 +2394,11 @@ function switchLesson(lop) {
   document.getElementById(`lessonPanel${lop}`).classList.add('active');
 }
 
+// ===== ONG VÀNG MODAL =====
+function showOngModal() {
+  document.getElementById('ongModalOverlay').classList.add('active');
+}
+
 // ===== TOGGLE RESOURCE =====
 function toggleResource() {
   const body = document.getElementById('resourceBody');
@@ -2287,7 +2408,7 @@ function toggleResource() {
   if (body.classList.contains('open')) {
     hint.innerHTML = 'Thu gọn <span class="arrow-res">▼</span>';
   } else {
-    hint.innerHTML = 'Bấm để xem môn học <span class="arrow-res">▼</span>';
+    hint.innerHTML = 'Bắt đầu thôi! <span class="arrow-res">▼</span>';
   }
 }
 
