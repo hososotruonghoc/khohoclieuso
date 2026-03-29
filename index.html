@@ -537,11 +537,12 @@ body {
 
 .class-stats {
   display: flex;
-  gap: 24px;
+  gap: 16px;
   margin-bottom: 24px;
   padding: 14px 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  flex-wrap: wrap;
 }
 .class-stat {
   display: flex;
@@ -1547,11 +1548,11 @@ body {
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">25</span> trò chơi
+            <span class="cs-num">6</span> trò chơi
           </div>
           <div class="class-stat">
-            <span class="cs-icon">📂</span>
-            <span class="cs-num">8</span> chủ đề
+            <span class="cs-icon">📝</span>
+            <span class="cs-num">497+</span> câu hỏi
           </div>
         </div>
         <div class="class-actions">
@@ -1578,11 +1579,15 @@ body {
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">30</span> trò chơi
+            <span class="cs-num">7</span> trò chơi
           </div>
           <div class="class-stat">
             <span class="cs-icon">📂</span>
-            <span class="cs-num">10</span> chủ đề
+            <span class="cs-num">37</span> chủ đề
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📝</span>
+            <span class="cs-num">356+</span> câu
           </div>
         </div>
         <div class="class-actions">
@@ -1603,17 +1608,22 @@ body {
         <div class="subject-tags">
           <span class="subject-tag">📐 Toán</span>
           <span class="subject-tag">📖 Tiếng Việt</span>
-          <span class="subject-tag">🔤 Tiếng Anh</span>
           <span class="subject-tag">🌍 TNXH</span>
+          <span class="subject-tag">🔧 Công nghệ</span>
+          <span class="subject-tag">🌈 HĐTN</span>
         </div>
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">35</span> trò chơi
+            <span class="cs-num">10</span> trò chơi
           </div>
           <div class="class-stat">
             <span class="cs-icon">📂</span>
-            <span class="cs-num">12</span> chủ đề
+            <span class="cs-num">92</span> chủ đề
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📝</span>
+            <span class="cs-num">446+</span> câu
           </div>
         </div>
         <div class="class-actions">
@@ -1634,18 +1644,22 @@ body {
         <div class="subject-tags">
           <span class="subject-tag">📐 Toán</span>
           <span class="subject-tag">📖 Tiếng Việt</span>
-          <span class="subject-tag">🔤 Tiếng Anh</span>
           <span class="subject-tag">🔬 Khoa học</span>
-          <span class="subject-tag">🗺️ Lịch sử & Địa lý</span>
+          <span class="subject-tag">🗺️ LS & ĐL</span>
+          <span class="subject-tag">🌈 HĐTN</span>
         </div>
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">40</span> trò chơi
+            <span class="cs-num">10</span> trò chơi
           </div>
           <div class="class-stat">
             <span class="cs-icon">📂</span>
-            <span class="cs-num">15</span> chủ đề
+            <span class="cs-num">59</span> chủ đề
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📝</span>
+            <span class="cs-num">484+</span> câu
           </div>
         </div>
         <div class="class-actions">
@@ -1666,18 +1680,22 @@ body {
         <div class="subject-tags">
           <span class="subject-tag">📐 Toán</span>
           <span class="subject-tag">📖 Tiếng Việt</span>
-          <span class="subject-tag">🔤 Tiếng Anh</span>
           <span class="subject-tag">🔬 Khoa học</span>
-          <span class="subject-tag">🗺️ Lịch sử & Địa lý</span>
+          <span class="subject-tag">🗺️ LS & ĐL</span>
+          <span class="subject-tag">🌈 HĐTN</span>
         </div>
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">45</span> trò chơi
+            <span class="cs-num">10</span> trò chơi
           </div>
           <div class="class-stat">
-            <span class="cs-icon">📂</span>
-            <span class="cs-num">18</span> chủ đề
+            <span class="cs-icon">📚</span>
+            <span class="cs-num">1</span> kho bài giảng
+          </div>
+          <div class="class-stat">
+            <span class="cs-icon">📝</span>
+            <span class="cs-num">200+</span> câu/môn
           </div>
         </div>
         <div class="class-actions">
@@ -1698,7 +1716,7 @@ body {
       <div class="resource-preview">
         <div class="ong-vang-module">
           <!-- Mascot & Features -->
-          <div class="ong-vang-scene" onmouseenter="showOngModal()" ontouchstart="showOngModal()">
+          <div class="ong-vang-scene" onclick="showOngModal()" style="cursor:pointer;">
             <span class="ong-vang-mascot" id="ongMascot">🐝</span>
             <div class="ong-vang-features">
               <div class="ong-feature">
@@ -1767,7 +1785,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>15</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tiengviet">
@@ -1785,7 +1803,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tienganh">
@@ -1803,7 +1821,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>10</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tnxh">
@@ -1821,7 +1839,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>12</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
       </div>
@@ -1859,7 +1877,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tiengviet">
@@ -1877,7 +1895,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>22</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tienganh">
@@ -1895,7 +1913,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>12</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tnxh">
@@ -1913,7 +1931,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
       </div>
@@ -1951,7 +1969,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tiengviet">
@@ -1969,7 +1987,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>24</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tienganh">
@@ -1987,7 +2005,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tnxh">
@@ -2005,7 +2023,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
       </div>
@@ -2043,7 +2061,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>22</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tiengviet">
@@ -2061,7 +2079,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>26</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tienganh">
@@ -2079,7 +2097,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-khoahoc">
@@ -2097,7 +2115,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-lichsu">
@@ -2115,7 +2133,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
       </div>
@@ -2153,7 +2171,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>25</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tiengviet">
@@ -2171,7 +2189,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>28</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-tienganh">
@@ -2189,7 +2207,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-khoahoc">
@@ -2207,7 +2225,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
         <div class="subject-card sc-lichsu">
@@ -2225,7 +2243,7 @@ body {
           </ul>
           <div class="sc-footer">
             <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#">📖 Xem</a>
+            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
           </div>
         </div>
       </div>
@@ -2321,53 +2339,58 @@ body {
 // ===== GAME DATA =====
 const gameData = {
   1: [
-    { name: 'Ghép số với hình ảnh', subject: 'Toán', type: 'Ghép nối' },
-    { name: 'Đếm và chọn đáp án', subject: 'Toán', type: 'Tốc độ' },
-    { name: 'Phép cộng trong phạm vi 10', subject: 'Toán', type: 'Đua xe' },
-    { name: 'Nhận biết chữ cái', subject: 'Tiếng Việt', type: 'Ghép nối' },
-    { name: 'Ghép vần đơn giản', subject: 'Tiếng Việt', type: 'Trí tuệ' },
-    { name: 'Đọc từ và chọn hình', subject: 'Tiếng Việt', type: 'Mua sắm' },
-    { name: 'Hello! What\'s your name?', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
-    { name: 'Khám phá thiên nhiên', subject: 'TNXH', type: 'Phiêu lưu' },
+    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '11 dạng, ∞ câu ngẫu nhiên' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '80 cặp ghép' },
+    { name: 'Học Vui Thi Tài', subject: 'Toán + TV', type: '100 câu' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '42 câu' },
+    { name: 'Cánh Diều TV', subject: 'Tiếng Việt', type: '36 câu' },
+    { name: 'Tiếng Anh', subject: 'Tiếng Anh', type: '39 câu' },
   ],
   2: [
-    { name: 'Phép nhân bảng 2, 3, 4, 5', subject: 'Toán', type: 'Tốc độ' },
-    { name: 'So sánh số có hai chữ số', subject: 'Toán', type: 'Đua xe' },
-    { name: 'Hình học cơ bản', subject: 'Toán', type: 'Ghép nối' },
-    { name: 'Điền vần, điền từ', subject: 'Tiếng Việt', type: 'Trí tuệ' },
-    { name: 'Sắp xếp câu đúng', subject: 'Tiếng Việt', type: 'Ghép nối' },
-    { name: 'Colors and Numbers', subject: 'Tiếng Anh', type: 'Vòng quay' },
-    { name: 'My Family', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
-    { name: 'Động vật quanh ta', subject: 'TNXH', type: 'Mua sắm' },
+    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '11 dạng, ∞ câu ngẫu nhiên' },
+    { name: 'Nối Bạn Thân', subject: 'TV KNTT', type: '47 cặp, 5 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '100 câu, 5 bộ đề' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '36 câu, 3 chủ đề' },
+    { name: 'TV Cánh Diều', subject: 'Tiếng Việt', type: '48 câu, 4 chủ đề' },
+    { name: 'English Grade 2 Quiz', subject: 'Tiếng Anh', type: '45 câu, 3 topics' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Tổng hợp', type: '130 câu, 4 cấp độ' },
   ],
   3: [
-    { name: 'Phép chia có dư', subject: 'Toán', type: 'Tốc độ' },
-    { name: 'Chu vi hình chữ nhật', subject: 'Toán', type: 'Trí tuệ' },
-    { name: 'Giải toán có lời văn', subject: 'Toán', type: 'Phiêu lưu' },
-    { name: 'Đọc hiểu đoạn văn', subject: 'Tiếng Việt', type: 'Trí tuệ' },
-    { name: 'Từ loại tiếng Việt', subject: 'Tiếng Việt', type: 'Ghép nối' },
-    { name: 'Animals and Food', subject: 'Tiếng Anh', type: 'Mua sắm' },
-    { name: 'Thực vật và môi trường', subject: 'TNXH', type: 'Phiêu lưu' },
+    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '6 dạng, ∞ câu tự sinh' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '105 cặp, 6 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '~198 câu, 7 bộ đề' },
+    { name: 'Vòng Quay – Toán', subject: 'Toán KNTT', type: '15 câu' },
+    { name: 'Khởi động TV KNTT', subject: 'TV KNTT', type: '13 câu' },
+    { name: 'Khởi động TV Cánh Diều', subject: 'TV Cánh Diều', type: '14 câu' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '15 câu, 13 bài' },
+    { name: 'Công nghệ', subject: 'Công nghệ', type: '12 câu, 10 bài' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '8 câu, 8 chủ đề' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Tổng hợp', type: '~66 câu, 4 cấp độ' },
   ],
   4: [
-    { name: 'Phân số và so sánh', subject: 'Toán', type: 'Đua xe' },
-    { name: 'Diện tích hình bình hành', subject: 'Toán', type: 'Trí tuệ' },
-    { name: 'Trung bình cộng', subject: 'Toán', type: 'Tốc độ' },
-    { name: 'Luyện từ và câu', subject: 'Tiếng Việt', type: 'Ghép nối' },
-    { name: 'Viết đoạn văn ngắn', subject: 'Tiếng Việt', type: 'Trí tuệ' },
-    { name: 'My School', subject: 'Tiếng Anh', type: 'Phiêu lưu' },
-    { name: 'Hệ tiêu hóa', subject: 'Khoa học', type: 'Ghép nối' },
-    { name: 'Lịch sử nước ta', subject: 'Lịch sử & Địa lý', type: 'Vòng quay' },
+    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '5 dạng, ∞ câu ngẫu nhiên' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '72 cặp, 4 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '80 câu, 8 bộ đề' },
+    { name: 'Vòng Quay Khám Phá', subject: 'Toán', type: '20 câu, 5 chủ đề' },
+    { name: 'TV – KNTT', subject: 'TV KNTT', type: '96 câu, 12 bài' },
+    { name: 'TV – Cánh Diều', subject: 'TV Cánh Diều', type: '56 câu, 7 bài' },
+    { name: 'Khoa học', subject: 'Khoa học', type: '48 câu, 6 chủ đề' },
+    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '40 câu, 5 chủ đề' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '32 câu, 4 chủ đề' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '40 câu, 3 cấp' },
   ],
   5: [
-    { name: 'Số thập phân', subject: 'Toán', type: 'Tốc độ' },
-    { name: 'Tỉ số phần trăm', subject: 'Toán', type: 'Đua xe' },
-    { name: 'Hình hộp chữ nhật', subject: 'Toán', type: 'Trí tuệ' },
-    { name: 'Tập làm văn tả cảnh', subject: 'Tiếng Việt', type: 'Trí tuệ' },
-    { name: 'Câu ghép và dấu câu', subject: 'Tiếng Việt', type: 'Ghép nối' },
-    { name: 'My Hobbies', subject: 'Tiếng Anh', type: 'Vòng quay' },
-    { name: 'Năng lượng và biến đổi', subject: 'Khoa học', type: 'Phiêu lưu' },
-    { name: 'Địa lý Việt Nam', subject: 'Lịch sử & Địa lý', type: 'Mua sắm' },
+    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '6 dạng, thi đua tổ' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: 'Đồng/trái nghĩa, 5 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '9 bộ câu hỏi' },
+    { name: 'Vòng Quay Khám Phá', subject: 'Toán KNTT', type: '13 bài học' },
+    { name: 'Game khởi động TV KNTT', subject: 'TV KNTT', type: '11 bài học' },
+    { name: 'Game khởi động TV Cánh Diều', subject: 'TV Cánh Diều', type: '7 bài học' },
+    { name: 'Khoa học', subject: 'Khoa học', type: '8 bài học' },
+    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '10 bài học' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: 'Tuần 28–35' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '200+ câu/môn, 4 cấp độ' },
+    { name: 'Kho Bài Giảng Điện Tử', subject: '7 môn', type: 'Google Drive' },
   ]
 };
 
