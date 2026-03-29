@@ -1112,71 +1112,6 @@ body {
   font-size: 48px;
   opacity: 0.3;
 }
-.resource-body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.resource-body.open {
-  max-height: 800px;
-}
-.resource-body-inner {
-  padding: 24px 28px 28px;
-}
-.resource-subject {
-  margin-bottom: 16px;
-}
-.resource-subject-title {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 800;
-  font-size: 15px;
-  color: var(--text-dark);
-  margin-bottom: 8px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.resource-grades {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.resource-grade-btn {
-  padding: 6px 16px;
-  border-radius: 20px;
-  border: 2px solid #e0e0e0;
-  background: #f8f9ff;
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: var(--text-dark);
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-.resource-grade-btn:hover {
-  background: #ff9800;
-  color: white;
-  border-color: #ff9800;
-  transform: translateY(-2px);
-}
-.resource-toggle-hint {
-  text-align: center;
-  padding: 12px;
-  font-size: 13px;
-  color: var(--text-medium);
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-.resource-toggle-hint:hover { color: #ff9800; }
-.resource-toggle-hint .arrow-res {
-  display: inline-block;
-  transition: transform 0.3s ease;
-}
-.resource-toggle-hint.open .arrow-res {
-  transform: rotate(180deg);
-}
 .resource-preview {
   padding: 20px 28px 8px;
   display: flex;
@@ -1558,7 +1493,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(1)">📋 Xem danh sách</button>
-          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop1" target="_blank" style="text-decoration:none;">🚀 Cùng khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop1" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1593,7 +1528,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(2)">📋 Xem danh sách</button>
-          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop2" target="_blank" style="text-decoration:none;">🚀 Cùng khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop2" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1629,7 +1564,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(3)">📋 Xem danh sách</button>
-          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop3" target="_blank" style="text-decoration:none;">🚀 Cùng khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop3" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1665,7 +1600,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(4)">📋 Xem danh sách</button>
-          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop4" target="_blank" style="text-decoration:none;">🚀 Cùng khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop4" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1701,14 +1636,14 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(5)">📋 Xem danh sách</button>
-          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtac" target="_blank" style="text-decoration:none;">🚀 Cùng khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtac" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
 
     <!-- TRỢ LÝ ONG VÀNG AI -->
     <div class="resource-card reveal">
-      <div class="resource-card-header" onclick="toggleResource()">
+      <div class="resource-card-header">
         <span class="class-emoji">🐝</span>
         <span class="class-label">Trợ lý AI</span>
         <h3>Trợ lý Ong Vàng AI! 🐝🤖</h3>
@@ -2428,19 +2363,6 @@ function switchLesson(lop) {
 // ===== ONG VÀNG MODAL =====
 function showOngModal() {
   document.getElementById('ongModalOverlay').classList.add('active');
-}
-
-// ===== TOGGLE RESOURCE =====
-function toggleResource() {
-  const body = document.getElementById('resourceBody');
-  const hint = document.getElementById('resHint');
-  body.classList.toggle('open');
-  hint.classList.toggle('open');
-  if (body.classList.contains('open')) {
-    hint.innerHTML = 'Thu gọn <span class="arrow-res">▼</span>';
-  } else {
-    hint.innerHTML = 'Bắt đầu thôi! <span class="arrow-res">▼</span>';
-  }
 }
 
 // ===== MODAL =====
