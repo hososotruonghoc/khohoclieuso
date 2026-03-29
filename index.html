@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>KHO HỌC LIỆU SỐ – TRÒ CHƠI TƯƠNG TÁC - BÀI GIẢNG ĐIỆN TỬ </title>
+<title>KHO HỌC LIỆU SỐ – Trò chơi tương tác & Bài giảng điện tử</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Quicksand:wght@400;500;600;700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -622,6 +622,289 @@ body {
 .lop5 .subject-tag { background: #FBE9E7; color: var(--lop5-dark); }
 .lop5 .btn-play { background: var(--lop5-grad); }
 
+/* ===== BÀI GIẢNG ĐIỆN TỬ ===== */
+.lesson-section {
+  padding: 50px 0 30px;
+}
+.lesson-intro {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+.lesson-intro p {
+  color: var(--text-medium);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.lesson-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+.lesson-tab {
+  padding: 10px 24px;
+  border-radius: 50px;
+  border: 2px solid #d0d8e8;
+  background: var(--white);
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: var(--text-medium);
+}
+.lesson-tab:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.lesson-tab.active {
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+.lesson-tab[data-lop="1"].active { background: var(--lop1); }
+.lesson-tab[data-lop="2"].active { background: var(--lop2); }
+.lesson-tab[data-lop="3"].active { background: var(--lop3); }
+.lesson-tab[data-lop="4"].active { background: var(--lop4); }
+.lesson-tab[data-lop="5"].active { background: var(--lop5); }
+
+.lesson-panel { display: none; }
+.lesson-panel.active { display: block; animation: fadeInUp 0.5s ease; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-panel-header {
+  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+  padding: 32px 36px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+.lesson-panel-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18) 0%, transparent 55%);
+}
+.lesson-panel-header .lph-info { position: relative; z-index: 1; }
+.lesson-panel-header .lph-info h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+.lesson-panel-header .lph-info p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+.lesson-panel-header .lph-icon {
+  font-size: 56px;
+  opacity: 0.25;
+  position: relative;
+  z-index: 1;
+}
+
+.lesson-panel-body {
+  background: var(--white);
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  padding: 32px;
+}
+
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+.subject-card {
+  background: #f7f9ff;
+  border-radius: 20px;
+  padding: 24px;
+  border: 1px solid #e8edf5;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-soft);
+  border-color: transparent;
+}
+.subject-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  border-radius: 0 0 20px 20px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.subject-card:hover::after { opacity: 1; }
+
+.sc-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.sc-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+.sc-header h4 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--text-dark);
+}
+.sc-header .sc-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 3px;
+}
+
+.sc-topics {
+  list-style: none;
+  margin-bottom: 18px;
+}
+.sc-topics li {
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--text-medium);
+  border-bottom: 1px solid #eef1f7;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sc-topics li:last-child { border-bottom: none; }
+.sc-topics li .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.sc-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sc-count {
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 600;
+}
+.sc-count strong {
+  font-size: 20px;
+  color: var(--text-dark);
+}
+.btn-lesson {
+  padding: 8px 20px;
+  border-radius: 12px;
+  border: none;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.btn-lesson:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.lesson-summary {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top: 2px solid #eef1f7;
+  flex-wrap: wrap;
+}
+.ls-item {
+  text-align: center;
+}
+.ls-item .ls-num {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--text-dark);
+  display: block;
+}
+.ls-item .ls-label {
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 600;
+}
+
+/* Subject color themes */
+.sc-toan .sc-icon { background: #E3F2FD; }
+.sc-toan .sc-badge { background: #E3F2FD; color: #1565C0; }
+.sc-toan .dot { background: #1565C0; }
+.sc-toan .btn-lesson { background: linear-gradient(135deg, #42A5F5, #1565C0); }
+.sc-toan::after { background: linear-gradient(90deg, #42A5F5, #1565C0); }
+
+.sc-tiengviet .sc-icon { background: #E8F5E9; }
+.sc-tiengviet .sc-badge { background: #E8F5E9; color: #2E7D32; }
+.sc-tiengviet .dot { background: #2E7D32; }
+.sc-tiengviet .btn-lesson { background: linear-gradient(135deg, #66BB6A, #2E7D32); }
+.sc-tiengviet::after { background: linear-gradient(90deg, #66BB6A, #2E7D32); }
+
+.sc-tienganh .sc-icon { background: #FFF3E0; }
+.sc-tienganh .sc-badge { background: #FFF3E0; color: #E65100; }
+.sc-tienganh .dot { background: #E65100; }
+.sc-tienganh .btn-lesson { background: linear-gradient(135deg, #FFA726, #E65100); }
+.sc-tienganh::after { background: linear-gradient(90deg, #FFA726, #E65100); }
+
+.sc-tnxh .sc-icon { background: #F3E5F5; }
+.sc-tnxh .sc-badge { background: #F3E5F5; color: #7B1FA2; }
+.sc-tnxh .dot { background: #7B1FA2; }
+.sc-tnxh .btn-lesson { background: linear-gradient(135deg, #AB47BC, #7B1FA2); }
+.sc-tnxh::after { background: linear-gradient(90deg, #AB47BC, #7B1FA2); }
+
+.sc-khoahoc .sc-icon { background: #E0F7FA; }
+.sc-khoahoc .sc-badge { background: #E0F7FA; color: #00838F; }
+.sc-khoahoc .dot { background: #00838F; }
+.sc-khoahoc .btn-lesson { background: linear-gradient(135deg, #26C6DA, #00838F); }
+.sc-khoahoc::after { background: linear-gradient(90deg, #26C6DA, #00838F); }
+
+.sc-lichsu .sc-icon { background: #FBE9E7; }
+.sc-lichsu .sc-badge { background: #FBE9E7; color: #BF360C; }
+.sc-lichsu .dot { background: #BF360C; }
+.sc-lichsu .btn-lesson { background: linear-gradient(135deg, #FF7043, #BF360C); }
+.sc-lichsu::after { background: linear-gradient(90deg, #FF7043, #BF360C); }
+
+@media (max-width: 768px) {
+  .lesson-panel-header { padding: 24px 20px; flex-direction: column; text-align: center; gap: 10px; }
+  .lesson-panel-body { padding: 20px; }
+  .subject-grid { grid-template-columns: 1fr; }
+  .lesson-summary { gap: 24px; }
+  .lesson-tabs { gap: 6px; }
+  .lesson-tab { padding: 8px 16px; font-size: 13px; }
+}
+
 /* ===== FOOTER ===== */
 .footer {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
@@ -767,6 +1050,175 @@ body {
   color: var(--text-medium);
 }
 
+/* ===== TÀI NGUYÊN SỐ CARD ===== */
+.resource-card {
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+.resource-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+.resource-card-header {
+  background: linear-gradient(135deg, #2ecc71, #27ae60, #1abc9c);
+  padding: 28px 28px 20px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.resource-card-header::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(circle at 90% 10%, rgba(255,255,255,0.2) 0%, transparent 50%);
+}
+.resource-card-header .class-label {
+  display: inline-block;
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(5px);
+  padding: 4px 16px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+  position: relative;
+}
+.resource-card-header h3 {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 24px;
+  font-weight: 800;
+  position: relative;
+}
+.resource-card-header .res-sub {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 6px;
+  position: relative;
+  font-weight: 500;
+}
+.resource-card-header .class-emoji {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 48px;
+  opacity: 0.3;
+}
+.resource-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.resource-body.open {
+  max-height: 800px;
+}
+.resource-body-inner {
+  padding: 24px 28px 28px;
+}
+.resource-subject {
+  margin-bottom: 16px;
+}
+.resource-subject-title {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.resource-grades {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.resource-grade-btn {
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 2px solid #e0e0e0;
+  background: #f8f9ff;
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+.resource-grade-btn:hover {
+  background: #27ae60;
+  color: white;
+  border-color: #27ae60;
+  transform: translateY(-2px);
+}
+.resource-toggle-hint {
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  color: var(--text-medium);
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+.resource-toggle-hint:hover { color: #27ae60; }
+.resource-toggle-hint .arrow-res {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+.resource-toggle-hint.open .arrow-res {
+  transform: rotate(180deg);
+}
+.resource-preview {
+  padding: 20px 28px 8px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.resource-preview-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 12px;
+  background: linear-gradient(135deg, #f0faf4 0%, #e8f5e9 100%);
+  border-radius: 16px;
+  min-width: 90px;
+  transition: all 0.3s ease;
+}
+.resource-preview-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(39,174,96,0.15);
+}
+.resource-preview-item .rp-icon {
+  font-size: 32px;
+  display: block;
+  animation: gentlePulse 3s infinite ease-in-out;
+}
+.resource-preview-item:nth-child(2) .rp-icon { animation-delay: 0.5s; }
+.resource-preview-item:nth-child(3) .rp-icon { animation-delay: 1s; }
+.resource-preview-item:nth-child(4) .rp-icon { animation-delay: 1.5s; }
+.resource-preview-item:nth-child(5) .rp-icon { animation-delay: 2s; }
+.resource-preview-item .rp-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #27ae60;
+  text-align: center;
+  line-height: 1.3;
+}
+@keyframes gentlePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+}
+
 /* ===== BACK TO TOP ===== */
 .back-to-top {
   position: fixed;
@@ -828,9 +1280,9 @@ body {
   <div class="hero-deco">🏆</div>
   <div class="hero-content">
     <div class="hero-badge">🏫 Chương trình GDPT 2018</div>
-    <h1><span class="emoji-icon">🎮</span> KHO HỌC LIỆU SỐ<br>TRÒ CHƠI TƯƠNG TÁC</h1>
-    <h2>✨ Kết nối tri thức với cuộc sống ✨</h2>
-    <p>Hệ thống trò chơi học tập số dành cho dạy học trên lớp – sinh động, dễ sử dụng, tăng hứng thú học tập cho học sinh Tiểu học. Hỗ trợ giáo viên tổ chức hoạt động dạy học hiệu quả theo Chương trình GDPT 2018.</p>
+    <h1><span class="emoji-icon">📚</span> KHO HỌC LIỆU SỐ</h1>
+    <h2>🎮 Các trò chơi tương tác & 📝 Bài giảng điện tử</h2>
+    <p>Hệ thống học liệu số phục vụ dạy học trên lớp và ôn luyện tại nhà – sinh động, dễ sử dụng, tăng hứng thú học tập cho học sinh Tiểu học. Hỗ trợ giáo viên tổ chức hoạt động dạy học hiệu quả theo Chương trình GDPT 2018.</p>
   </div>
 </header>
 
@@ -1097,6 +1549,605 @@ body {
       </div>
     </div>
 
+    <!-- TÀI NGUYÊN SỐ -->
+    <div class="resource-card reveal">
+      <div class="resource-card-header" onclick="toggleResource()">
+        <span class="class-emoji">📦</span>
+        <span class="class-label">Tài nguyên</span>
+        <h3>Tài nguyên số</h3>
+        <p class="res-sub">Đồ dùng dạy học số, video, hình ảnh minh họa...</p>
+      </div>
+      <div class="resource-toggle-hint" id="resHint" onclick="toggleResource()">
+        Bấm để xem môn học <span class="arrow-res">▼</span>
+      </div>
+      <div class="resource-preview">
+        <div class="resource-preview-item">
+          <span class="rp-icon">🎬</span>
+          <span class="rp-label">Video<br>bài giảng</span>
+        </div>
+        <div class="resource-preview-item">
+          <span class="rp-icon">🖼️</span>
+          <span class="rp-label">Hình ảnh<br>minh họa</span>
+        </div>
+        <div class="resource-preview-item">
+          <span class="rp-icon">📊</span>
+          <span class="rp-label">Đồ dùng<br>dạy học</span>
+        </div>
+        <div class="resource-preview-item">
+          <span class="rp-icon">📋</span>
+          <span class="rp-label">Phiếu<br>học tập</span>
+        </div>
+        <div class="resource-preview-item">
+          <span class="rp-icon">🗂️</span>
+          <span class="rp-label">Giáo án<br>điện tử</span>
+        </div>
+      </div>
+      <div class="resource-body" id="resourceBody">
+        <div class="resource-body-inner">
+
+          <div class="resource-subject">
+            <div class="resource-subject-title">📐 Toán</div>
+            <div class="resource-grades">
+              <a class="resource-grade-btn" href="#">Lớp 1</a>
+              <a class="resource-grade-btn" href="#">Lớp 2</a>
+              <a class="resource-grade-btn" href="#">Lớp 3</a>
+              <a class="resource-grade-btn" href="#">Lớp 4</a>
+              <a class="resource-grade-btn" href="#">Lớp 5</a>
+            </div>
+          </div>
+
+          <div class="resource-subject">
+            <div class="resource-subject-title">📖 Tiếng Việt</div>
+            <div class="resource-grades">
+              <a class="resource-grade-btn" href="#">Lớp 1</a>
+              <a class="resource-grade-btn" href="#">Lớp 2</a>
+              <a class="resource-grade-btn" href="#">Lớp 3</a>
+              <a class="resource-grade-btn" href="#">Lớp 4</a>
+              <a class="resource-grade-btn" href="#">Lớp 5</a>
+            </div>
+          </div>
+
+          <div class="resource-subject">
+            <div class="resource-subject-title">🌍 Tự nhiên và Xã hội</div>
+            <div class="resource-grades">
+              <a class="resource-grade-btn" href="#">Lớp 1</a>
+              <a class="resource-grade-btn" href="#">Lớp 2</a>
+              <a class="resource-grade-btn" href="#">Lớp 3</a>
+            </div>
+          </div>
+
+          <div class="resource-subject">
+            <div class="resource-subject-title">🔬 Khoa học</div>
+            <div class="resource-grades">
+              <a class="resource-grade-btn" href="#">Lớp 4</a>
+              <a class="resource-grade-btn" href="#">Lớp 5</a>
+            </div>
+          </div>
+
+          <div class="resource-subject">
+            <div class="resource-subject-title">🗺️ Lịch sử và Địa lý</div>
+            <div class="resource-grades">
+              <a class="resource-grade-btn" href="#">Lớp 4</a>
+              <a class="resource-grade-btn" href="#">Lớp 5</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== BÀI GIẢNG ĐIỆN TỬ ===== -->
+<section class="lesson-section container" id="bai-giang">
+  <h2 class="section-title reveal"><span class="icon">📝</span>Bài Giảng Điện Tử</h2>
+  <div class="lesson-intro reveal">
+    <p>Hệ thống bài giảng điện tử được biên soạn bám sát Chương trình GDPT 2018, hỗ trợ giáo viên trình chiếu trên lớp và học sinh tự học tại nhà.</p>
+  </div>
+
+  <div class="lesson-tabs reveal">
+    <button class="lesson-tab active" data-lop="1" onclick="switchLesson(1)">🌱 Lớp 1</button>
+    <button class="lesson-tab" data-lop="2" onclick="switchLesson(2)">🌿 Lớp 2</button>
+    <button class="lesson-tab" data-lop="3" onclick="switchLesson(3)">🌳 Lớp 3</button>
+    <button class="lesson-tab" data-lop="4" onclick="switchLesson(4)">🌲 Lớp 4</button>
+    <button class="lesson-tab" data-lop="5" onclick="switchLesson(5)">🌟 Lớp 5</button>
+  </div>
+
+  <!-- LỚP 1 -->
+  <div class="lesson-panel active" id="lessonPanel1">
+    <div class="lesson-panel-header" style="background: var(--lop1-grad);">
+      <div class="lph-info">
+        <h3>📝 Bài giảng điện tử – Lớp 1</h3>
+        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      </div>
+      <span class="lph-icon">🌱</span>
+    </div>
+    <div class="lesson-panel-body">
+      <div class="subject-grid">
+        <div class="subject-card sc-toan">
+          <div class="sc-header">
+            <div class="sc-icon">📐</div>
+            <div>
+              <h4>Toán</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Các số đến 10, đến 100</li>
+            <li><span class="dot"></span>Phép cộng, phép trừ trong phạm vi 10</li>
+            <li><span class="dot"></span>Hình học và đo lường cơ bản</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>15</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tiengviet">
+          <div class="sc-header">
+            <div class="sc-icon">📖</div>
+            <div>
+              <h4>Tiếng Việt</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Làm quen chữ cái, âm vần</li>
+            <li><span class="dot"></span>Tập đọc – Kể chuyện</li>
+            <li><span class="dot"></span>Tập viết – Chính tả</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>20</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tienganh">
+          <div class="sc-header">
+            <div class="sc-icon">🔤</div>
+            <div>
+              <h4>Tiếng Anh</h4>
+              <span class="sc-badge">3 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Greetings & Alphabet</li>
+            <li><span class="dot"></span>Numbers & Colors</li>
+            <li><span class="dot"></span>My Family & Friends</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>10</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tnxh">
+          <div class="sc-header">
+            <div class="sc-icon">🌍</div>
+            <div>
+              <h4>Tự nhiên & Xã hội</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Gia đình và trường học</li>
+            <li><span class="dot"></span>Cộng đồng địa phương</li>
+            <li><span class="dot"></span>Thực vật và động vật</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>12</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-summary">
+        <div class="ls-item"><span class="ls-num">57</span><span class="ls-label">Bài giảng</span></div>
+        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
+        <div class="ls-item"><span class="ls-num">16</span><span class="ls-label">Chương</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LỚP 2 -->
+  <div class="lesson-panel" id="lessonPanel2">
+    <div class="lesson-panel-header" style="background: var(--lop2-grad);">
+      <div class="lph-info">
+        <h3>📝 Bài giảng điện tử – Lớp 2</h3>
+        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      </div>
+      <span class="lph-icon">🌿</span>
+    </div>
+    <div class="lesson-panel-body">
+      <div class="subject-grid">
+        <div class="subject-card sc-toan">
+          <div class="sc-header">
+            <div class="sc-icon">📐</div>
+            <div>
+              <h4>Toán</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Phép cộng, trừ có nhớ</li>
+            <li><span class="dot"></span>Bảng nhân 2, 3, 4, 5</li>
+            <li><span class="dot"></span>Hình học phẳng cơ bản</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>18</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tiengviet">
+          <div class="sc-header">
+            <div class="sc-icon">📖</div>
+            <div>
+              <h4>Tiếng Việt</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Tập đọc – Hiểu văn bản</li>
+            <li><span class="dot"></span>Luyện từ và câu</li>
+            <li><span class="dot"></span>Kể chuyện – Tập làm văn</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>22</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tienganh">
+          <div class="sc-header">
+            <div class="sc-icon">🔤</div>
+            <div>
+              <h4>Tiếng Anh</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>My Classroom & School</li>
+            <li><span class="dot"></span>Daily Routines</li>
+            <li><span class="dot"></span>Animals & Nature</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>12</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tnxh">
+          <div class="sc-header">
+            <div class="sc-icon">🌍</div>
+            <div>
+              <h4>Tự nhiên & Xã hội</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Con người và sức khỏe</li>
+            <li><span class="dot"></span>Động vật và thực vật</li>
+            <li><span class="dot"></span>Trái đất và bầu trời</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>14</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-summary">
+        <div class="ls-item"><span class="ls-num">66</span><span class="ls-label">Bài giảng</span></div>
+        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
+        <div class="ls-item"><span class="ls-num">18</span><span class="ls-label">Chương</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LỚP 3 -->
+  <div class="lesson-panel" id="lessonPanel3">
+    <div class="lesson-panel-header" style="background: var(--lop3-grad);">
+      <div class="lph-info">
+        <h3>📝 Bài giảng điện tử – Lớp 3</h3>
+        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      </div>
+      <span class="lph-icon">🌳</span>
+    </div>
+    <div class="lesson-panel-body">
+      <div class="subject-grid">
+        <div class="subject-card sc-toan">
+          <div class="sc-header">
+            <div class="sc-icon">📐</div>
+            <div>
+              <h4>Toán</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Phép nhân, phép chia</li>
+            <li><span class="dot"></span>Chu vi, diện tích hình đơn giản</li>
+            <li><span class="dot"></span>Giải toán có lời văn</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>20</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tiengviet">
+          <div class="sc-header">
+            <div class="sc-icon">📖</div>
+            <div>
+              <h4>Tiếng Việt</h4>
+              <span class="sc-badge">6 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Đọc hiểu – Viết đoạn văn</li>
+            <li><span class="dot"></span>Từ loại tiếng Việt</li>
+            <li><span class="dot"></span>Nói và nghe – Kể chuyện</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>24</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tienganh">
+          <div class="sc-header">
+            <div class="sc-icon">🔤</div>
+            <div>
+              <h4>Tiếng Anh</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Food & Drinks</li>
+            <li><span class="dot"></span>Weather & Seasons</li>
+            <li><span class="dot"></span>Places & Directions</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>14</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tnxh">
+          <div class="sc-header">
+            <div class="sc-icon">🌍</div>
+            <div>
+              <h4>Tự nhiên & Xã hội</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Thực vật và môi trường</li>
+            <li><span class="dot"></span>Nước và không khí</li>
+            <li><span class="dot"></span>An toàn trong cuộc sống</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>16</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-summary">
+        <div class="ls-item"><span class="ls-num">74</span><span class="ls-label">Bài giảng</span></div>
+        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
+        <div class="ls-item"><span class="ls-num">20</span><span class="ls-label">Chương</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LỚP 4 -->
+  <div class="lesson-panel" id="lessonPanel4">
+    <div class="lesson-panel-header" style="background: var(--lop4-grad);">
+      <div class="lph-info">
+        <h3>📝 Bài giảng điện tử – Lớp 4</h3>
+        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      </div>
+      <span class="lph-icon">🌲</span>
+    </div>
+    <div class="lesson-panel-body">
+      <div class="subject-grid">
+        <div class="subject-card sc-toan">
+          <div class="sc-header">
+            <div class="sc-icon">📐</div>
+            <div>
+              <h4>Toán</h4>
+              <span class="sc-badge">6 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Phân số – So sánh phân số</li>
+            <li><span class="dot"></span>Diện tích hình bình hành, hình thoi</li>
+            <li><span class="dot"></span>Trung bình cộng, biểu đồ</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>22</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tiengviet">
+          <div class="sc-header">
+            <div class="sc-icon">📖</div>
+            <div>
+              <h4>Tiếng Việt</h4>
+              <span class="sc-badge">6 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Luyện từ và câu nâng cao</li>
+            <li><span class="dot"></span>Tập làm văn miêu tả</li>
+            <li><span class="dot"></span>Đọc hiểu văn bản</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>26</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tienganh">
+          <div class="sc-header">
+            <div class="sc-icon">🔤</div>
+            <div>
+              <h4>Tiếng Anh</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>My School & Hobbies</li>
+            <li><span class="dot"></span>Jobs & Community</li>
+            <li><span class="dot"></span>Reading & Writing skills</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>16</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-khoahoc">
+          <div class="sc-header">
+            <div class="sc-icon">🔬</div>
+            <div>
+              <h4>Khoa học</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Con người và sức khỏe</li>
+            <li><span class="dot"></span>Vật chất và năng lượng</li>
+            <li><span class="dot"></span>Thực vật và động vật</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>18</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-lichsu">
+          <div class="sc-header">
+            <div class="sc-icon">🗺️</div>
+            <div>
+              <h4>Lịch sử & Địa lý</h4>
+              <span class="sc-badge">4 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Lịch sử dựng nước và giữ nước</li>
+            <li><span class="dot"></span>Địa lý tự nhiên Việt Nam</li>
+            <li><span class="dot"></span>Các vùng miền đất nước</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>14</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-summary">
+        <div class="ls-item"><span class="ls-num">96</span><span class="ls-label">Bài giảng</span></div>
+        <div class="ls-item"><span class="ls-num">5</span><span class="ls-label">Môn học</span></div>
+        <div class="ls-item"><span class="ls-num">26</span><span class="ls-label">Chương</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LỚP 5 -->
+  <div class="lesson-panel" id="lessonPanel5">
+    <div class="lesson-panel-header" style="background: var(--lop5-grad);">
+      <div class="lph-info">
+        <h3>📝 Bài giảng điện tử – Lớp 5</h3>
+        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      </div>
+      <span class="lph-icon">🌟</span>
+    </div>
+    <div class="lesson-panel-body">
+      <div class="subject-grid">
+        <div class="subject-card sc-toan">
+          <div class="sc-header">
+            <div class="sc-icon">📐</div>
+            <div>
+              <h4>Toán</h4>
+              <span class="sc-badge">7 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Số thập phân, tỉ số phần trăm</li>
+            <li><span class="dot"></span>Hình hộp chữ nhật, hình trụ</li>
+            <li><span class="dot"></span>Ôn tập cuối cấp Tiểu học</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>25</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tiengviet">
+          <div class="sc-header">
+            <div class="sc-icon">📖</div>
+            <div>
+              <h4>Tiếng Việt</h4>
+              <span class="sc-badge">7 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Tập làm văn tả người, tả cảnh</li>
+            <li><span class="dot"></span>Câu ghép, dấu câu nâng cao</li>
+            <li><span class="dot"></span>Đọc hiểu và viết sáng tạo</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>28</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-tienganh">
+          <div class="sc-header">
+            <div class="sc-icon">🔤</div>
+            <div>
+              <h4>Tiếng Anh</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>My Hobbies & Future Plans</li>
+            <li><span class="dot"></span>Travel & Culture</li>
+            <li><span class="dot"></span>Speaking & Listening practice</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>18</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-khoahoc">
+          <div class="sc-header">
+            <div class="sc-icon">🔬</div>
+            <div>
+              <h4>Khoa học</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Năng lượng và biến đổi</li>
+            <li><span class="dot"></span>Môi trường và tài nguyên</li>
+            <li><span class="dot"></span>Sinh sản ở thực vật, động vật</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>20</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+        <div class="subject-card sc-lichsu">
+          <div class="sc-header">
+            <div class="sc-icon">🗺️</div>
+            <div>
+              <h4>Lịch sử & Địa lý</h4>
+              <span class="sc-badge">5 chương</span>
+            </div>
+          </div>
+          <ul class="sc-topics">
+            <li><span class="dot"></span>Lịch sử Việt Nam hiện đại</li>
+            <li><span class="dot"></span>Địa lý các châu lục</li>
+            <li><span class="dot"></span>Bảo vệ Tổ quốc</li>
+          </ul>
+          <div class="sc-footer">
+            <div class="sc-count"><strong>16</strong> bài giảng</div>
+            <a class="btn-lesson" href="#">📖 Xem</a>
+          </div>
+        </div>
+      </div>
+      <div class="lesson-summary">
+        <div class="ls-item"><span class="ls-num">107</span><span class="ls-label">Bài giảng</span></div>
+        <div class="ls-item"><span class="ls-num">5</span><span class="ls-label">Môn học</span></div>
+        <div class="ls-item"><span class="ls-num">29</span><span class="ls-label">Chương</span></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -1105,8 +2156,8 @@ body {
   <div class="container">
     <div class="footer-content">
       <div>
-        <h4>🎮 Kho Học Liệu Số</h4>
-        <p style="line-height:1.8">Hệ thống trò chơi học tập tương tác dành cho học sinh Tiểu học, hỗ trợ dạy học theo Chương trình GDPT 2018.</p>
+        <h4>📚 Kho Học Liệu Số</h4>
+        <p style="line-height:1.8">Hệ thống trò chơi học tập tương tác và bài giảng điện tử dành cho học sinh Tiểu học, hỗ trợ dạy học theo Chương trình GDPT 2018.</p>
       </div>
       <div>
         <h4>📚 Khối lớp</h4>
@@ -1121,6 +2172,7 @@ body {
       <div>
         <h4>🔗 Liên kết</h4>
         <ul class="footer-links">
+          <li><a href="#bai-giang">Bài giảng điện tử</a></li>
           <li><a href="#">Hướng dẫn sử dụng</a></li>
           <li><a href="#">Chương trình GDPT 2018</a></li>
           <li><a href="#">Tài liệu giáo viên</a></li>
@@ -1217,6 +2269,27 @@ const classSolid = {
   4: 'var(--lop4)',
   5: 'var(--lop5)',
 };
+
+// ===== LESSON TABS =====
+function switchLesson(lop) {
+  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
+  document.querySelector(`.lesson-tab[data-lop="${lop}"]`).classList.add('active');
+  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(`lessonPanel${lop}`).classList.add('active');
+}
+
+// ===== TOGGLE RESOURCE =====
+function toggleResource() {
+  const body = document.getElementById('resourceBody');
+  const hint = document.getElementById('resHint');
+  body.classList.toggle('open');
+  hint.classList.toggle('open');
+  if (body.classList.contains('open')) {
+    hint.innerHTML = 'Thu gọn <span class="arrow-res">▼</span>';
+  } else {
+    hint.innerHTML = 'Bấm để xem môn học <span class="arrow-res">▼</span>';
+  }
+}
 
 // ===== MODAL =====
 function openModal(classNum) {
