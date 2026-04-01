@@ -1293,136 +1293,6 @@ body {
   .ong-modal-body .ong-section { padding: 14px; }
 }
 
-/* ===== NOTIFICATION MODAL ===== */
-.notify-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  z-index: 2000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-.notify-overlay.active { display: flex; }
-.notify-box {
-  background: white;
-  border-radius: 28px;
-  max-width: 420px;
-  width: 100%;
-  overflow: hidden;
-  box-shadow: 0 25px 80px rgba(0,0,0,0.25);
-  animation: notifyIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-@keyframes notifyIn {
-  from { opacity: 0; transform: scale(0.8) translateY(30px); }
-  to { opacity: 1; transform: scale(1) translateY(0); }
-}
-.notify-header {
-  background: linear-gradient(135deg, #1a73e8 0%, #4a90d9 40%, #7ec8e3 100%);
-  padding: 32px 28px 24px;
-  text-align: center;
-  position: relative;
-}
-.notify-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px; left: 0; right: 0;
-  height: 30px;
-  background: white;
-  clip-path: ellipse(55% 100% at 50% 100%);
-}
-.notify-icon {
-  font-size: 52px;
-  display: block;
-  margin-bottom: 10px;
-  animation: bellRing 1.5s ease-in-out infinite;
-}
-@keyframes bellRing {
-  0%, 100% { transform: rotate(0deg); }
-  10% { transform: rotate(12deg); }
-  20% { transform: rotate(-12deg); }
-  30% { transform: rotate(8deg); }
-  40% { transform: rotate(-8deg); }
-  50% { transform: rotate(0deg); }
-}
-.notify-header h3 {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 24px;
-  font-weight: 800;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-}
-.notify-body {
-  padding: 28px 32px 20px;
-  text-align: center;
-}
-.notify-body p {
-  font-size: 16px;
-  line-height: 1.8;
-  color: #2c3e6b;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-.notify-contact {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #f0f4ff 0%, #e8ecff 100%);
-  padding: 12px 24px;
-  border-radius: 16px;
-  border: 1.5px solid #c5d0f0;
-}
-.notify-contact .nc-avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #1a73e8, #4a90d9);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: white;
-  font-weight: 800;
-  font-family: 'Baloo 2', sans-serif;
-}
-.notify-contact .nc-info {
-  text-align: left;
-}
-.notify-contact .nc-name {
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 800;
-  color: #1b2a4a;
-}
-.notify-contact .nc-zalo {
-  font-size: 12px;
-  color: #1a73e8;
-  font-weight: 700;
-}
-.notify-footer {
-  padding: 0 32px 28px;
-  text-align: center;
-}
-.notify-close-btn {
-  padding: 14px 48px;
-  border-radius: 50px;
-  border: none;
-  background: linear-gradient(135deg, #1a73e8, #4a90d9);
-  color: white;
-  font-family: 'Nunito', sans-serif;
-  font-size: 15px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(26,115,232,0.3);
-}
-.notify-close-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(26,115,232,0.4);
-}
-
 /* ===== BACK TO TOP ===== */
 .back-to-top {
   position: fixed;
@@ -1594,7 +1464,6 @@ body {
 <section class="class-section container">
   <h2 class="section-title reveal"><span class="icon">📚</span>Danh Mục Theo Khối Lớp</h2>
   <p class="section-subtitle reveal">Chọn khối lớp để sử dụng cho hoạt động Dạy và Học</p>
-  <p class="section-subtitle reveal" style="font-style:italic;color:#e65100;font-size:14px;margin-top:-30px;">( Trong thời gian sử dụng miễn phí, các thầy cô đăng nhập tài khoản: <strong>trainghiem</strong>; MK: <strong>abc123</strong> )</p>
   <div class="class-grid">
 
     <!-- LỚP 1 -->
@@ -1623,7 +1492,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(1)">📋 Xem danh sách</button>
-          <a class="btn-play" href="#" onclick="event.preventDefault();showNotify()" style="text-decoration:none;cursor:pointer;">🚀 Khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop1" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1658,7 +1527,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(2)">📋 Xem danh sách</button>
-          <a class="btn-play" href="#" onclick="event.preventDefault();showNotify()" style="text-decoration:none;cursor:pointer;">🚀 Khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop2" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1694,7 +1563,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(3)">📋 Xem danh sách</button>
-          <a class="btn-play" href="#" onclick="event.preventDefault();showNotify()" style="text-decoration:none;cursor:pointer;">🚀 Khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop3" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1730,7 +1599,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(4)">📋 Xem danh sách</button>
-          <a class="btn-play" href="#" onclick="event.preventDefault();showNotify()" style="text-decoration:none;cursor:pointer;">🚀 Khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtaclop4" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -1766,7 +1635,7 @@ body {
         </div>
         <div class="class-actions">
           <button class="btn-view" onclick="openModal(5)">📋 Xem danh sách</button>
-          <a class="btn-play" href="#" onclick="event.preventDefault();showNotify()" style="text-decoration:none;cursor:pointer;">🚀 Khám phá</a>
+          <a class="btn-play" href="https://hososotruonghoc.github.io/gametuongtac" target="_blank" style="text-decoration:none;">🚀 Khám phá</a>
         </div>
       </div>
     </div>
@@ -2367,28 +2236,7 @@ body {
 <!-- ===== BACK TO TOP ===== -->
 <button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- ===== NOTIFICATION MODAL ===== -->
-<div class="notify-overlay" id="notifyOverlay" onclick="if(event.target===this)this.classList.remove('active')">
-  <div class="notify-box">
-    <div class="notify-header">
-      <span class="notify-icon">🔔</span>
-      <h3>Thông báo!</h3>
-    </div>
-    <div class="notify-body">
-      <p>Hệ thống đang nâng cấp, xin vui lòng quay lại sau.<br>Trân trọng cảm ơn!</p>
-      <div class="notify-contact">
-        <div class="nc-avatar">CT</div>
-        <div class="nc-info">
-          <div class="nc-name">Chung Trần</div>
-          <div class="nc-zalo">📱 Zalo 0913 031 073</div>
-        </div>
-      </div>
-    </div>
-    <div class="notify-footer">
-      <button class="notify-close-btn" onclick="document.getElementById('notifyOverlay').classList.remove('active')">Đã hiểu ✓</button>
-    </div>
-  </div>
-</div>
+
 
 <!-- ===== ONG VÀNG MODAL ===== -->
 <div class="ong-modal-overlay" id="ongModalOverlay" onclick="if(event.target===this)this.classList.remove('active')">
@@ -2510,11 +2358,6 @@ function switchLesson(lop) {
   document.querySelector(`.lesson-tab[data-lop="${lop}"]`).classList.add('active');
   document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
   document.getElementById(`lessonPanel${lop}`).classList.add('active');
-}
-
-// ===== NOTIFICATION =====
-function showNotify() {
-  document.getElementById('notifyOverlay').classList.add('active');
 }
 
 // ===== ONG VÀNG MODAL =====
