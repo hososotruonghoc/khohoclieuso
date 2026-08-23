@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>KHO HỌC LIỆU SỐ – Trò chơi tương tác & Bài giảng điện tử</title>
+<title>KHO HỌC LIỆU SỐ – Trò chơi tương tác</title>
 
 <!-- PWA: Fullscreen on mobile -->
 <meta name="mobile-web-app-capable" content="yes">
@@ -165,7 +165,7 @@ body {
   font-weight: 800;
   color: white;
   text-shadow: 0 4px 20px rgba(0,0,0,0.2);
-  margin-bottom: 12px;
+  margin-bottom: 18px;
   line-height: 1.2;
   animation: fadeInDown 0.8s ease 0.1s both;
 }
@@ -173,20 +173,14 @@ body {
   display: inline-block;
   animation: bounce 2s infinite;
 }
-.hero h2 {
-  font-family: 'Quicksand', sans-serif;
-  font-size: clamp(18px, 2.5vw, 26px);
-  font-weight: 600;
-  color: rgba(255,255,255,0.95);
-  margin-bottom: 16px;
-  animation: fadeInDown 0.8s ease 0.2s both;
-}
 .hero p {
-  font-size: clamp(14px, 1.5vw, 17px);
-  color: rgba(255,255,255,0.85);
-  max-width: 750px;
+  font-size: clamp(17px, 2.1vw, 23px);
+  font-weight: 500;
+  color: rgba(255,255,255,0.95);
+  max-width: 880px;
   margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.75;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.15);
   animation: fadeInDown 0.8s ease 0.3s both;
 }
 
@@ -634,288 +628,6 @@ body {
 .lop5 .subject-tag { background: #FBE9E7; color: var(--lop5-dark); }
 .lop5 .btn-play { background: var(--lop5-grad); }
 
-/* ===== BÀI GIẢNG ĐIỆN TỬ ===== */
-.lesson-section {
-  padding: 50px 0 30px;
-}
-.lesson-intro {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto 40px;
-}
-.lesson-intro p {
-  color: var(--text-medium);
-  font-size: 15px;
-  line-height: 1.7;
-}
-
-.lesson-tabs {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 36px;
-  flex-wrap: wrap;
-}
-.lesson-tab {
-  padding: 10px 24px;
-  border-radius: 50px;
-  border: 2px solid #d0d8e8;
-  background: var(--white);
-  font-family: 'Nunito', sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  color: var(--text-medium);
-}
-.lesson-tab:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
-.lesson-tab.active {
-  color: white;
-  border-color: transparent;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-}
-.lesson-tab[data-lop="1"].active { background: var(--lop1); }
-.lesson-tab[data-lop="2"].active { background: var(--lop2); }
-.lesson-tab[data-lop="3"].active { background: var(--lop3); }
-.lesson-tab[data-lop="4"].active { background: var(--lop4); }
-.lesson-tab[data-lop="5"].active { background: var(--lop5); }
-
-.lesson-panel { display: none; }
-.lesson-panel.active { display: block; animation: fadeInUp 0.5s ease; }
-
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.lesson-panel-header {
-  border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-  padding: 32px 36px;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-  overflow: hidden;
-}
-.lesson-panel-header::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle at 85% 20%, rgba(255,255,255,0.18) 0%, transparent 55%);
-}
-.lesson-panel-header .lph-info { position: relative; z-index: 1; }
-.lesson-panel-header .lph-info h3 {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 26px;
-  font-weight: 800;
-  margin-bottom: 6px;
-}
-.lesson-panel-header .lph-info p {
-  font-size: 14px;
-  opacity: 0.9;
-}
-.lesson-panel-header .lph-icon {
-  font-size: 56px;
-  opacity: 0.25;
-  position: relative;
-  z-index: 1;
-}
-
-.lesson-panel-body {
-  background: var(--white);
-  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
-  box-shadow: var(--shadow-card);
-  padding: 32px;
-}
-
-.subject-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
-}
-.subject-card {
-  background: #f7f9ff;
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid #e8edf5;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-.subject-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-soft);
-  border-color: transparent;
-}
-.subject-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 3px;
-  border-radius: 0 0 20px 20px;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-.subject-card:hover::after { opacity: 1; }
-
-.sc-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 16px;
-}
-.sc-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 24px;
-  flex-shrink: 0;
-}
-.sc-header h4 {
-  font-family: 'Nunito', sans-serif;
-  font-size: 17px;
-  font-weight: 800;
-  color: var(--text-dark);
-}
-.sc-header .sc-badge {
-  font-size: 11px;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: 20px;
-  display: inline-block;
-  margin-top: 3px;
-}
-
-.sc-topics {
-  list-style: none;
-  margin-bottom: 18px;
-}
-.sc-topics li {
-  padding: 8px 0;
-  font-size: 14px;
-  color: var(--text-medium);
-  border-bottom: 1px solid #eef1f7;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.sc-topics li:last-child { border-bottom: none; }
-.sc-topics li .dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.sc-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.sc-count {
-  font-size: 13px;
-  color: var(--text-medium);
-  font-weight: 600;
-}
-.sc-count strong {
-  font-size: 20px;
-  color: var(--text-dark);
-}
-.btn-lesson {
-  padding: 8px 20px;
-  border-radius: 12px;
-  border: none;
-  font-family: 'Nunito', sans-serif;
-  font-size: 13px;
-  font-weight: 700;
-  color: white;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-.btn-lesson:hover {
-  transform: translateY(-2px);
-  filter: brightness(1.1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
-
-.lesson-summary {
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  margin-top: 32px;
-  padding-top: 28px;
-  border-top: 2px solid #eef1f7;
-  flex-wrap: wrap;
-}
-.ls-item {
-  text-align: center;
-}
-.ls-item .ls-num {
-  font-family: 'Baloo 2', sans-serif;
-  font-size: 32px;
-  font-weight: 800;
-  color: var(--text-dark);
-  display: block;
-}
-.ls-item .ls-label {
-  font-size: 13px;
-  color: var(--text-medium);
-  font-weight: 600;
-}
-
-/* Subject color themes */
-.sc-toan .sc-icon { background: #E3F2FD; }
-.sc-toan .sc-badge { background: #E3F2FD; color: #1565C0; }
-.sc-toan .dot { background: #1565C0; }
-.sc-toan .btn-lesson { background: linear-gradient(135deg, #42A5F5, #1565C0); }
-.sc-toan::after { background: linear-gradient(90deg, #42A5F5, #1565C0); }
-
-.sc-tiengviet .sc-icon { background: #E8F5E9; }
-.sc-tiengviet .sc-badge { background: #E8F5E9; color: #2E7D32; }
-.sc-tiengviet .dot { background: #2E7D32; }
-.sc-tiengviet .btn-lesson { background: linear-gradient(135deg, #66BB6A, #2E7D32); }
-.sc-tiengviet::after { background: linear-gradient(90deg, #66BB6A, #2E7D32); }
-
-.sc-tienganh .sc-icon { background: #FFF3E0; }
-.sc-tienganh .sc-badge { background: #FFF3E0; color: #E65100; }
-.sc-tienganh .dot { background: #E65100; }
-.sc-tienganh .btn-lesson { background: linear-gradient(135deg, #FFA726, #E65100); }
-.sc-tienganh::after { background: linear-gradient(90deg, #FFA726, #E65100); }
-
-.sc-tnxh .sc-icon { background: #F3E5F5; }
-.sc-tnxh .sc-badge { background: #F3E5F5; color: #7B1FA2; }
-.sc-tnxh .dot { background: #7B1FA2; }
-.sc-tnxh .btn-lesson { background: linear-gradient(135deg, #AB47BC, #7B1FA2); }
-.sc-tnxh::after { background: linear-gradient(90deg, #AB47BC, #7B1FA2); }
-
-.sc-khoahoc .sc-icon { background: #E0F7FA; }
-.sc-khoahoc .sc-badge { background: #E0F7FA; color: #00838F; }
-.sc-khoahoc .dot { background: #00838F; }
-.sc-khoahoc .btn-lesson { background: linear-gradient(135deg, #26C6DA, #00838F); }
-.sc-khoahoc::after { background: linear-gradient(90deg, #26C6DA, #00838F); }
-
-.sc-lichsu .sc-icon { background: #FBE9E7; }
-.sc-lichsu .sc-badge { background: #FBE9E7; color: #BF360C; }
-.sc-lichsu .dot { background: #BF360C; }
-.sc-lichsu .btn-lesson { background: linear-gradient(135deg, #FF7043, #BF360C); }
-.sc-lichsu::after { background: linear-gradient(90deg, #FF7043, #BF360C); }
-
-@media (max-width: 768px) {
-  .lesson-panel-header { padding: 24px 20px; flex-direction: column; text-align: center; gap: 10px; }
-  .lesson-panel-body { padding: 20px; }
-  .subject-grid { grid-template-columns: 1fr; }
-  .lesson-summary { gap: 24px; }
-  .lesson-tabs { gap: 6px; }
-  .lesson-tab { padding: 8px 16px; font-size: 13px; }
-}
 
 /* ===== FOOTER ===== */
 .footer {
@@ -1346,6 +1058,402 @@ body {
   .hero-content { padding: 40px 16px 70px; }
   .class-actions { flex-direction: column; }
 }
+/* ===== TÌM KIẾM TRÒ CHƠI ===== */
+.game-search {
+  max-width: 720px;
+  margin: 0 auto 36px;
+}
+.gs-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--white);
+  border: 2px solid #dbe4f5;
+  border-radius: 50px;
+  padding: 6px 8px 6px 18px;
+  box-shadow: var(--shadow-soft);
+  transition: all 0.25s ease;
+}
+.gs-box:focus-within {
+  border-color: #1a73e8;
+  box-shadow: 0 6px 24px rgba(26,115,232,0.18);
+}
+.gs-icon { font-size: 20px; flex-shrink: 0; }
+.gs-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-dark);
+  padding: 10px 0;
+  min-width: 0;
+}
+.gs-box input::placeholder { color: #9bacc9; font-weight: 500; }
+.gs-clear {
+  display: none;
+  flex-shrink: 0;
+  width: 34px; height: 34px;
+  border: none;
+  border-radius: 50%;
+  background: #eef2fb;
+  color: var(--text-medium);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.gs-clear:hover { background: #dde5f5; }
+.gs-clear.show { display: block; }
+
+.gs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 14px;
+}
+.gs-chip {
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: 1.5px solid #dbe4f5;
+  background: var(--white);
+  color: var(--text-medium);
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.gs-chip:hover { border-color: #1a73e8; color: #1a73e8; transform: translateY(-2px); }
+
+.gs-results { margin-top: 18px; }
+.gs-count-line {
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-medium);
+  margin-bottom: 12px;
+}
+.gs-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border-radius: 16px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  box-shadow: var(--shadow-soft);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.gs-item:hover { transform: translateX(4px); box-shadow: var(--shadow-card); }
+.gs-badge {
+  flex-shrink: 0;
+  width: 46px; height: 46px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1;
+}
+.gs-badge small { font-size: 9px; font-weight: 700; opacity: 0.9; letter-spacing: 0.5px; }
+.gs-info { flex: 1; min-width: 0; }
+.gs-info h4 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 3px;
+}
+.gs-info p {
+  font-size: 12.5px;
+  color: var(--text-medium);
+  opacity: 0.85;
+}
+.gs-go { flex-shrink: 0; font-size: 18px; opacity: 0.5; }
+.gs-empty {
+  text-align: center;
+  padding: 24px;
+  color: var(--text-medium);
+  font-weight: 600;
+}
+
+/* ===== THỬ THÁCH 60 GIÂY ===== */
+.quiz-section { padding: 40px 0 20px; }
+.quiz-card {
+  max-width: 780px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.quiz-inner { padding: 32px 28px 34px; }
+.qz-hide { display: none; }
+
+.qz-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+.qz-opts {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 26px;
+}
+.qz-opt {
+  padding: 11px 22px;
+  border-radius: 50px;
+  border: 2px solid #dbe4f5;
+  background: var(--white);
+  color: var(--text-medium);
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.qz-opt:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+.qz-opt.on { color: white; border-color: transparent; box-shadow: var(--shadow-soft); }
+.qz-start {
+  display: block;
+  width: 100%;
+  max-width: 340px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  border: none;
+  border-radius: 50px;
+  background: linear-gradient(135deg, #1a73e8, #4a90d9);
+  color: white;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(26,115,232,0.35);
+  transition: all 0.25s ease;
+}
+.qz-start:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(26,115,232,0.45); }
+
+.qz-bar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.qz-chip {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text-medium);
+  background: #eef2fb;
+  padding: 7px 16px;
+  border-radius: 50px;
+}
+.qz-chip strong { color: #1a73e8; font-size: 16px; }
+.qz-time strong { font-variant-numeric: tabular-nums; }
+.qz-time.low { background: #ffe7e0; }
+.qz-time.low strong { color: #d84315; }
+.qz-track {
+  height: 8px;
+  background: #eef2fb;
+  border-radius: 50px;
+  overflow: hidden;
+  margin-bottom: 24px;
+}
+.qz-fill {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #4FC3F7, #1a73e8);
+  border-radius: 50px;
+  transition: width 0.95s linear;
+}
+.qz-fill.low { background: linear-gradient(90deg, #FFAB91, #D84315); }
+
+.qz-q {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: clamp(19px, 2.6vw, 25px);
+  font-weight: 700;
+  color: var(--text-dark);
+  text-align: center;
+  line-height: 1.45;
+  margin-bottom: 22px;
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qz-answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.qz-ans {
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 2px solid #dbe4f5;
+  background: var(--white);
+  color: var(--text-dark);
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: left;
+  line-height: 1.4;
+}
+.qz-ans:hover:not(:disabled) { border-color: #1a73e8; transform: translateY(-2px); }
+.qz-ans:disabled { cursor: default; }
+.qz-ans.right { background: #e8f5e9; border-color: #2E7D32; color: #1b5e20; }
+.qz-ans.wrong { background: #ffebee; border-color: #c62828; color: #b71c1c; }
+.qz-note {
+  text-align: center;
+  margin-top: 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  min-height: 24px;
+}
+.qz-note.ok { color: #2E7D32; }
+.qz-note.no { color: #c62828; }
+
+.qz-end-icon { font-size: 64px; text-align: center; display: block; margin-bottom: 6px; }
+.qz-end-title {
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 6px;
+}
+.qz-end-sub { text-align: center; color: var(--text-medium); font-weight: 600; margin-bottom: 22px; }
+.qz-stats {
+  display: flex;
+  justify-content: center;
+  gap: 34px;
+  flex-wrap: wrap;
+  margin-bottom: 26px;
+}
+.qz-stat { text-align: center; }
+.qz-stat span {
+  display: block;
+  font-family: 'Baloo 2', sans-serif;
+  font-size: 34px;
+  font-weight: 800;
+  color: #1a73e8;
+  line-height: 1;
+}
+.qz-stat small {
+  font-family: 'Nunito', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.qz-again {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.qz-btn2 {
+  padding: 13px 28px;
+  border-radius: 50px;
+  border: 2px solid #1a73e8;
+  background: var(--white);
+  color: #1a73e8;
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.qz-btn2.fill { background: linear-gradient(135deg,#1a73e8,#4a90d9); color: white; border-color: transparent; }
+.qz-btn2:hover { transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+
+/* ===== EM CÓ BIẾT ===== */
+.fact-section { padding: 40px 0 20px; }
+.fact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+  margin-bottom: 24px;
+}
+.fact-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px 22px;
+  box-shadow: var(--shadow-soft);
+  border-top: 5px solid #1a73e8;
+  transition: all 0.3s ease;
+  animation: fadeInUp 0.5s ease;
+}
+.fact-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-card); }
+.fact-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.fact-emoji { font-size: 26px; }
+.fact-tag {
+  font-family: 'Nunito', sans-serif;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: #eef2fb;
+  color: var(--text-medium);
+}
+.fact-card p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+.fact-shuffle {
+  display: block;
+  margin: 0 auto;
+  padding: 13px 34px;
+  border-radius: 50px;
+  border: 2px solid #dbe4f5;
+  background: var(--white);
+  color: var(--text-medium);
+  font-family: 'Nunito', sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.fact-shuffle:hover { border-color: #1a73e8; color: #1a73e8; transform: translateY(-2px); box-shadow: var(--shadow-soft); }
+
+@media (max-width: 600px) {
+  .qz-answers { grid-template-columns: 1fr; }
+  .quiz-inner { padding: 24px 18px 28px; }
+  .qz-stats { gap: 22px; }
+  .qz-q { min-height: 60px; }
+  .gs-box input { font-size: 15px; }
+}
+
 </style>
 </head>
 <body>
@@ -1366,7 +1474,6 @@ body {
   <div class="hero-content">
     <div class="hero-badge">🏫 Chương trình GDPT 2018</div>
     <h1><span class="emoji-icon">📚</span> KHO HỌC LIỆU SỐ</h1>
-    <h2>🎮 Các trò chơi tương tác & 📝 Bài giảng điện tử</h2>
     <p>Hệ thống học liệu số phục vụ dạy học trên lớp và ôn luyện tại nhà – sinh động, dễ sử dụng, tăng hứng thú học tập cho học sinh Tiểu học. Hỗ trợ giáo viên tổ chức hoạt động dạy học hiệu quả theo Chương trình GDPT 2018.</p>
   </div>
 </header>
@@ -1475,6 +1582,25 @@ body {
 <section class="class-section container">
   <h2 class="section-title reveal"><span class="icon">📚</span>Danh Mục Theo Khối Lớp</h2>
   <p class="section-subtitle reveal">Chọn khối lớp để sử dụng cho hoạt động Dạy và Học</p>
+
+  <div class="game-search reveal">
+    <div class="gs-box">
+      <span class="gs-icon">🔍</span>
+      <input type="text" id="gameSearch" placeholder="Tìm nhanh trò chơi… (vòng quay, khoa học, tiếng Anh…)" autocomplete="off" oninput="searchGames(this.value)">
+      <button class="gs-clear" id="gsClear" onclick="clearSearch()" aria-label="Xóa ô tìm kiếm">✕</button>
+    </div>
+    <div class="gs-chips">
+      <button class="gs-chip" onclick="quickSearch('Toán')">📐 Toán</button>
+      <button class="gs-chip" onclick="quickSearch('Tiếng Việt')">📖 Tiếng Việt</button>
+      <button class="gs-chip" onclick="quickSearch('Tiếng Anh')">🔤 Tiếng Anh</button>
+      <button class="gs-chip" onclick="quickSearch('Khoa học')">🔬 Khoa học</button>
+      <button class="gs-chip" onclick="quickSearch('TNXH')">🌍 TNXH</button>
+      <button class="gs-chip" onclick="quickSearch('HĐTN')">🌈 HĐTN</button>
+      <button class="gs-chip" onclick="quickSearch('vòng quay')">🎡 Vòng quay</button>
+    </div>
+    <div class="gs-results" id="gsResults"></div>
+  </div>
+
   <div class="class-grid">
 
     <!-- LỚP 1 -->
@@ -1494,7 +1620,7 @@ body {
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">6</span> trò chơi
+            <span class="cs-num">10</span> trò chơi
           </div>
           <div class="class-stat">
             <span class="cs-icon">📝</span>
@@ -1525,7 +1651,7 @@ body {
         <div class="class-stats">
           <div class="class-stat">
             <span class="cs-icon">🎮</span>
-            <span class="cs-num">7</span> trò chơi
+            <span class="cs-num">10</span> trò chơi
           </div>
           <div class="class-stat">
             <span class="cs-icon">📂</span>
@@ -1637,7 +1763,7 @@ body {
           </div>
           <div class="class-stat">
             <span class="cs-icon">📚</span>
-            <span class="cs-num">1</span> kho bài giảng
+            <span class="cs-num">5</span> môn học
           </div>
           <div class="class-stat">
             <span class="cs-icon">📝</span>
@@ -1696,516 +1822,68 @@ body {
   </div>
 </section>
 
-<!-- ===== BÀI GIẢNG ĐIỆN TỬ ===== -->
-<section class="lesson-section container" id="bai-giang">
-  <h2 class="section-title reveal"><span class="icon">📝</span>Bài Giảng Điện Tử</h2>
-  <div class="lesson-intro reveal">
-    <p>Hệ thống bài giảng điện tử được biên soạn bám sát Chương trình GDPT 2018, hỗ trợ giáo viên trình chiếu trên lớp và học sinh tự học tại nhà.</p>
-  </div>
+<!-- ===== THỬ THÁCH 60 GIÂY ===== -->
+<section class="quiz-section container" id="thu-thach">
+  <h2 class="section-title reveal"><span class="icon">⚡</span>Thử Thách 60 Giây</h2>
+  <p class="section-subtitle reveal">Khởi động tiết học • Kiểm tra bài cũ • Thi đua nhanh giữa các tổ</p>
 
-  <div class="lesson-tabs reveal">
-    <button class="lesson-tab active" data-lop="1" onclick="switchLesson(1)">🌱 Lớp 1</button>
-    <button class="lesson-tab" data-lop="2" onclick="switchLesson(2)">🌿 Lớp 2</button>
-    <button class="lesson-tab" data-lop="3" onclick="switchLesson(3)">🌳 Lớp 3</button>
-    <button class="lesson-tab" data-lop="4" onclick="switchLesson(4)">🌲 Lớp 4</button>
-    <button class="lesson-tab" data-lop="5" onclick="switchLesson(5)">🌟 Lớp 5</button>
-  </div>
+  <div class="quiz-card reveal">
+    <div class="quiz-inner" id="quizSetup">
+      <div class="qz-label">1. Chọn khối lớp</div>
+      <div class="qz-opts" id="qzClassOpts">
+        <button class="qz-opt" data-lop="1" onclick="pickClass(1)">🌱 Lớp 1</button>
+        <button class="qz-opt" data-lop="2" onclick="pickClass(2)">🌿 Lớp 2</button>
+        <button class="qz-opt" data-lop="3" onclick="pickClass(3)">🌳 Lớp 3</button>
+        <button class="qz-opt" data-lop="4" onclick="pickClass(4)">🌲 Lớp 4</button>
+        <button class="qz-opt on" data-lop="5" onclick="pickClass(5)">🌟 Lớp 5</button>
+      </div>
 
-  <!-- LỚP 1 -->
-  <div class="lesson-panel active" id="lessonPanel1">
-    <div class="lesson-panel-header" style="background: var(--lop1-grad);">
-      <div class="lph-info">
-        <h3>📝 Bài giảng điện tử – Lớp 1</h3>
-        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+      <div class="qz-label">2. Chọn nội dung ôn tập</div>
+      <div class="qz-opts" id="qzTopicOpts">
+        <button class="qz-opt on" data-mon="all" onclick="pickTopic('all')">🎯 Tổng hợp</button>
+        <button class="qz-opt" data-mon="toan" onclick="pickTopic('toan')">📐 Toán</button>
+        <button class="qz-opt" data-mon="tv" onclick="pickTopic('tv')">📖 Tiếng Việt</button>
+        <button class="qz-opt" data-mon="kp" onclick="pickTopic('kp')">🔬 Khám phá</button>
       </div>
-      <span class="lph-icon">🌱</span>
-    </div>
-    <div class="lesson-panel-body">
-      <div class="subject-grid">
-        <div class="subject-card sc-toan">
-          <div class="sc-header">
-            <div class="sc-icon">📐</div>
-            <div>
-              <h4>Toán</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Các số đến 10, đến 100</li>
-            <li><span class="dot"></span>Phép cộng, phép trừ trong phạm vi 10</li>
-            <li><span class="dot"></span>Hình học và đo lường cơ bản</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>15</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tiengviet">
-          <div class="sc-header">
-            <div class="sc-icon">📖</div>
-            <div>
-              <h4>Tiếng Việt</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Làm quen chữ cái, âm vần</li>
-            <li><span class="dot"></span>Tập đọc – Kể chuyện</li>
-            <li><span class="dot"></span>Tập viết – Chính tả</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tienganh">
-          <div class="sc-header">
-            <div class="sc-icon">🔤</div>
-            <div>
-              <h4>Tiếng Anh</h4>
-              <span class="sc-badge">3 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Greetings & Alphabet</li>
-            <li><span class="dot"></span>Numbers & Colors</li>
-            <li><span class="dot"></span>My Family & Friends</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>10</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tnxh">
-          <div class="sc-header">
-            <div class="sc-icon">🌍</div>
-            <div>
-              <h4>Tự nhiên & Xã hội</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Gia đình và trường học</li>
-            <li><span class="dot"></span>Cộng đồng địa phương</li>
-            <li><span class="dot"></span>Thực vật và động vật</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>12</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-      </div>
-      <div class="lesson-summary">
-        <div class="ls-item"><span class="ls-num">57</span><span class="ls-label">Bài giảng</span></div>
-        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
-        <div class="ls-item"><span class="ls-num">16</span><span class="ls-label">Chương</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- LỚP 2 -->
-  <div class="lesson-panel" id="lessonPanel2">
-    <div class="lesson-panel-header" style="background: var(--lop2-grad);">
-      <div class="lph-info">
-        <h3>📝 Bài giảng điện tử – Lớp 2</h3>
-        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
-      </div>
-      <span class="lph-icon">🌿</span>
+      <button class="qz-start" onclick="startQuiz()">🚀 BẮT ĐẦU</button>
     </div>
-    <div class="lesson-panel-body">
-      <div class="subject-grid">
-        <div class="subject-card sc-toan">
-          <div class="sc-header">
-            <div class="sc-icon">📐</div>
-            <div>
-              <h4>Toán</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Phép cộng, trừ có nhớ</li>
-            <li><span class="dot"></span>Bảng nhân 2, 3, 4, 5</li>
-            <li><span class="dot"></span>Hình học phẳng cơ bản</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tiengviet">
-          <div class="sc-header">
-            <div class="sc-icon">📖</div>
-            <div>
-              <h4>Tiếng Việt</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Tập đọc – Hiểu văn bản</li>
-            <li><span class="dot"></span>Luyện từ và câu</li>
-            <li><span class="dot"></span>Kể chuyện – Tập làm văn</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>22</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tienganh">
-          <div class="sc-header">
-            <div class="sc-icon">🔤</div>
-            <div>
-              <h4>Tiếng Anh</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>My Classroom & School</li>
-            <li><span class="dot"></span>Daily Routines</li>
-            <li><span class="dot"></span>Animals & Nature</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>12</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tnxh">
-          <div class="sc-header">
-            <div class="sc-icon">🌍</div>
-            <div>
-              <h4>Tự nhiên & Xã hội</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Con người và sức khỏe</li>
-            <li><span class="dot"></span>Động vật và thực vật</li>
-            <li><span class="dot"></span>Trái đất và bầu trời</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-      </div>
-      <div class="lesson-summary">
-        <div class="ls-item"><span class="ls-num">66</span><span class="ls-label">Bài giảng</span></div>
-        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
-        <div class="ls-item"><span class="ls-num">18</span><span class="ls-label">Chương</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- LỚP 3 -->
-  <div class="lesson-panel" id="lessonPanel3">
-    <div class="lesson-panel-header" style="background: var(--lop3-grad);">
-      <div class="lph-info">
-        <h3>📝 Bài giảng điện tử – Lớp 3</h3>
-        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+    <div class="quiz-inner qz-hide" id="quizPlay">
+      <div class="qz-bar-top">
+        <div class="qz-chip">Câu <strong id="qzIndex">1</strong></div>
+        <div class="qz-chip">Điểm <strong id="qzScore">0</strong></div>
+        <div class="qz-chip qz-time" id="qzTimeChip">⏱️ <strong id="qzTime">60</strong>s</div>
       </div>
-      <span class="lph-icon">🌳</span>
+      <div class="qz-track"><div class="qz-fill" id="qzFill"></div></div>
+      <div class="qz-q" id="qzQuestion">…</div>
+      <div class="qz-answers" id="qzAnswers"></div>
+      <div class="qz-note" id="qzNote"></div>
     </div>
-    <div class="lesson-panel-body">
-      <div class="subject-grid">
-        <div class="subject-card sc-toan">
-          <div class="sc-header">
-            <div class="sc-icon">📐</div>
-            <div>
-              <h4>Toán</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Phép nhân, phép chia</li>
-            <li><span class="dot"></span>Chu vi, diện tích hình đơn giản</li>
-            <li><span class="dot"></span>Giải toán có lời văn</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tiengviet">
-          <div class="sc-header">
-            <div class="sc-icon">📖</div>
-            <div>
-              <h4>Tiếng Việt</h4>
-              <span class="sc-badge">6 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Đọc hiểu – Viết đoạn văn</li>
-            <li><span class="dot"></span>Từ loại tiếng Việt</li>
-            <li><span class="dot"></span>Nói và nghe – Kể chuyện</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>24</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tienganh">
-          <div class="sc-header">
-            <div class="sc-icon">🔤</div>
-            <div>
-              <h4>Tiếng Anh</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Food & Drinks</li>
-            <li><span class="dot"></span>Weather & Seasons</li>
-            <li><span class="dot"></span>Places & Directions</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tnxh">
-          <div class="sc-header">
-            <div class="sc-icon">🌍</div>
-            <div>
-              <h4>Tự nhiên & Xã hội</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Thực vật và môi trường</li>
-            <li><span class="dot"></span>Nước và không khí</li>
-            <li><span class="dot"></span>An toàn trong cuộc sống</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-      </div>
-      <div class="lesson-summary">
-        <div class="ls-item"><span class="ls-num">74</span><span class="ls-label">Bài giảng</span></div>
-        <div class="ls-item"><span class="ls-num">4</span><span class="ls-label">Môn học</span></div>
-        <div class="ls-item"><span class="ls-num">20</span><span class="ls-label">Chương</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- LỚP 4 -->
-  <div class="lesson-panel" id="lessonPanel4">
-    <div class="lesson-panel-header" style="background: var(--lop4-grad);">
-      <div class="lph-info">
-        <h3>📝 Bài giảng điện tử – Lớp 4</h3>
-        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
+    <div class="quiz-inner qz-hide" id="quizEnd">
+      <span class="qz-end-icon" id="qzEndIcon">🏆</span>
+      <div class="qz-end-title" id="qzEndTitle">Hết giờ!</div>
+      <p class="qz-end-sub" id="qzEndSub">Em làm rất tốt!</p>
+      <div class="qz-stats">
+        <div class="qz-stat"><span id="qzFinalScore">0</span><small>Điểm</small></div>
+        <div class="qz-stat"><span id="qzFinalRight">0</span><small>Câu đúng</small></div>
+        <div class="qz-stat"><span id="qzFinalStreak">0</span><small>Chuỗi dài nhất</small></div>
       </div>
-      <span class="lph-icon">🌲</span>
-    </div>
-    <div class="lesson-panel-body">
-      <div class="subject-grid">
-        <div class="subject-card sc-toan">
-          <div class="sc-header">
-            <div class="sc-icon">📐</div>
-            <div>
-              <h4>Toán</h4>
-              <span class="sc-badge">6 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Phân số – So sánh phân số</li>
-            <li><span class="dot"></span>Diện tích hình bình hành, hình thoi</li>
-            <li><span class="dot"></span>Trung bình cộng, biểu đồ</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>22</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tiengviet">
-          <div class="sc-header">
-            <div class="sc-icon">📖</div>
-            <div>
-              <h4>Tiếng Việt</h4>
-              <span class="sc-badge">6 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Luyện từ và câu nâng cao</li>
-            <li><span class="dot"></span>Tập làm văn miêu tả</li>
-            <li><span class="dot"></span>Đọc hiểu văn bản</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>26</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tienganh">
-          <div class="sc-header">
-            <div class="sc-icon">🔤</div>
-            <div>
-              <h4>Tiếng Anh</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>My School & Hobbies</li>
-            <li><span class="dot"></span>Jobs & Community</li>
-            <li><span class="dot"></span>Reading & Writing skills</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-khoahoc">
-          <div class="sc-header">
-            <div class="sc-icon">🔬</div>
-            <div>
-              <h4>Khoa học</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Con người và sức khỏe</li>
-            <li><span class="dot"></span>Vật chất và năng lượng</li>
-            <li><span class="dot"></span>Thực vật và động vật</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-lichsu">
-          <div class="sc-header">
-            <div class="sc-icon">🗺️</div>
-            <div>
-              <h4>Lịch sử & Địa lý</h4>
-              <span class="sc-badge">4 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Lịch sử dựng nước và giữ nước</li>
-            <li><span class="dot"></span>Địa lý tự nhiên Việt Nam</li>
-            <li><span class="dot"></span>Các vùng miền đất nước</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>14</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-      </div>
-      <div class="lesson-summary">
-        <div class="ls-item"><span class="ls-num">96</span><span class="ls-label">Bài giảng</span></div>
-        <div class="ls-item"><span class="ls-num">5</span><span class="ls-label">Môn học</span></div>
-        <div class="ls-item"><span class="ls-num">26</span><span class="ls-label">Chương</span></div>
+      <div class="qz-again">
+        <button class="qz-btn2 fill" onclick="startQuiz()">🔄 Chơi lại</button>
+        <button class="qz-btn2" onclick="backToSetup()">⚙️ Đổi lớp / môn</button>
       </div>
     </div>
   </div>
+</section>
 
-  <!-- LỚP 5 -->
-  <div class="lesson-panel" id="lessonPanel5">
-    <div class="lesson-panel-header" style="background: var(--lop5-grad);">
-      <div class="lph-info">
-        <h3>📝 Bài giảng điện tử – Lớp 5</h3>
-        <p>Chương trình Giáo dục phổ thông 2018 • Kết nối tri thức với cuộc sống</p>
-      </div>
-      <span class="lph-icon">🌟</span>
-    </div>
-    <div class="lesson-panel-body">
-      <div class="subject-grid">
-        <div class="subject-card sc-toan">
-          <div class="sc-header">
-            <div class="sc-icon">📐</div>
-            <div>
-              <h4>Toán</h4>
-              <span class="sc-badge">7 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Số thập phân, tỉ số phần trăm</li>
-            <li><span class="dot"></span>Hình hộp chữ nhật, hình trụ</li>
-            <li><span class="dot"></span>Ôn tập cuối cấp Tiểu học</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>25</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tiengviet">
-          <div class="sc-header">
-            <div class="sc-icon">📖</div>
-            <div>
-              <h4>Tiếng Việt</h4>
-              <span class="sc-badge">7 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Tập làm văn tả người, tả cảnh</li>
-            <li><span class="dot"></span>Câu ghép, dấu câu nâng cao</li>
-            <li><span class="dot"></span>Đọc hiểu và viết sáng tạo</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>28</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-tienganh">
-          <div class="sc-header">
-            <div class="sc-icon">🔤</div>
-            <div>
-              <h4>Tiếng Anh</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>My Hobbies & Future Plans</li>
-            <li><span class="dot"></span>Travel & Culture</li>
-            <li><span class="dot"></span>Speaking & Listening practice</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>18</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-khoahoc">
-          <div class="sc-header">
-            <div class="sc-icon">🔬</div>
-            <div>
-              <h4>Khoa học</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Năng lượng và biến đổi</li>
-            <li><span class="dot"></span>Môi trường và tài nguyên</li>
-            <li><span class="dot"></span>Sinh sản ở thực vật, động vật</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>20</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-        <div class="subject-card sc-lichsu">
-          <div class="sc-header">
-            <div class="sc-icon">🗺️</div>
-            <div>
-              <h4>Lịch sử & Địa lý</h4>
-              <span class="sc-badge">5 chương</span>
-            </div>
-          </div>
-          <ul class="sc-topics">
-            <li><span class="dot"></span>Lịch sử Việt Nam hiện đại</li>
-            <li><span class="dot"></span>Địa lý các châu lục</li>
-            <li><span class="dot"></span>Bảo vệ Tổ quốc</li>
-          </ul>
-          <div class="sc-footer">
-            <div class="sc-count"><strong>16</strong> bài giảng</div>
-            <a class="btn-lesson" href="#" onclick="event.preventDefault();alert('📢 Nội dung đang được cập nhật - vui lòng quay lại sau!')">📖 Xem</a>
-          </div>
-        </div>
-      </div>
-      <div class="lesson-summary">
-        <div class="ls-item"><span class="ls-num">107</span><span class="ls-label">Bài giảng</span></div>
-        <div class="ls-item"><span class="ls-num">5</span><span class="ls-label">Môn học</span></div>
-        <div class="ls-item"><span class="ls-num">29</span><span class="ls-label">Chương</span></div>
-      </div>
-    </div>
-  </div>
+<!-- ===== EM CÓ BIẾT ===== -->
+<section class="fact-section container">
+  <h2 class="section-title reveal"><span class="icon">💡</span>Em Có Biết?</h2>
+  <p class="section-subtitle reveal">Kiến thức thú vị dùng cho phần khởi động hoặc củng cố cuối tiết</p>
+  <div class="fact-grid reveal" id="factGrid"></div>
+  <button class="fact-shuffle reveal" onclick="shuffleFacts()">🎲 Điều thú vị khác</button>
 </section>
 
 <!-- ===== FOOTER ===== -->
@@ -2214,7 +1892,7 @@ body {
     <div class="footer-content">
       <div>
         <h4>📚 Kho Học Liệu Số</h4>
-        <p style="line-height:1.8">Hệ thống trò chơi học tập tương tác và bài giảng điện tử dành cho học sinh Tiểu học, hỗ trợ dạy học theo Chương trình GDPT 2018.</p>
+        <p style="line-height:1.8">Hệ thống trò chơi học tập tương tác dành cho học sinh Tiểu học, hỗ trợ dạy học theo Chương trình GDPT 2018.</p>
       </div>
       <div>
         <h4>📚 Khối lớp</h4>
@@ -2229,7 +1907,6 @@ body {
       <div>
         <h4>🔗 Liên kết</h4>
         <ul class="footer-links">
-          <li><a href="#bai-giang">Bài giảng điện tử</a></li>
           <li><a href="#">Hướng dẫn sử dụng</a></li>
           <li><a href="#">Chương trình GDPT 2018</a></li>
           <li><a href="#">Tài liệu giáo viên</a></li>
@@ -2293,58 +1970,64 @@ body {
 // ===== GAME DATA =====
 const gameData = {
   1: [
-    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '11 dạng, ∞ câu ngẫu nhiên' },
-    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '80 cặp ghép' },
-    { name: 'Học Vui Thi Tài', subject: 'Toán + TV', type: '100 câu' },
-    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '42 câu' },
-    { name: 'Cánh Diều TV', subject: 'Tiếng Việt', type: '36 câu' },
-    { name: 'Tiếng Anh', subject: 'Tiếng Anh', type: '39 câu' },
+    { name: 'Ai Nhanh Hơn – Toán', subject: 'Toán', type: '11 dạng, phạm vi 20 & 100' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '5 chủ đề, ghép hình – ghép chữ' },
+    { name: 'Học Vui – Thi Tài', subject: 'Toán + TV', type: '5 bộ đề, thi đua nhóm' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '3 chủ đề, 42 câu' },
+    { name: 'Khởi động Tiếng Việt', subject: 'Tiếng Việt', type: '8 chủ điểm, 36 câu' },
+    { name: 'English – Grade 1', subject: 'Tiếng Anh', type: '3 topics, 39 câu' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '100 câu/môn, 4 cấp độ' },
+    { name: 'Lật Thẻ Ghi Nhớ', subject: 'Toán + TV + TA', type: '6 chủ đề, tìm cặp trùng' },
+    { name: 'Vòng Quay May Mắn', subject: 'Toán + TV', type: '3 chế độ chơi' },
+    { name: 'Sắp Xếp Câu', subject: 'Tiếng Việt', type: '4 chủ đề, 36 câu' },
   ],
   2: [
-    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '11 dạng, ∞ câu ngẫu nhiên' },
-    { name: 'Nối Bạn Thân', subject: 'TV KNTT', type: '47 cặp, 5 chủ đề' },
-    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '100 câu, 5 bộ đề' },
-    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '36 câu, 3 chủ đề' },
-    { name: 'TV Cánh Diều', subject: 'Tiếng Việt', type: '48 câu, 4 chủ đề' },
-    { name: 'English Grade 2 Quiz', subject: 'Tiếng Anh', type: '45 câu, 3 topics' },
-    { name: 'Vương Quốc Tri Thức', subject: 'Tổng hợp', type: '130 câu, 4 cấp độ' },
+    { name: 'Ai Nhanh Hơn – Toán', subject: 'Toán', type: '11 dạng, nhân chia & hình học' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '5 chủ đề, ghép từ – nối nghĩa' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '5 bộ đề, thi đua nhóm' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '3 chủ đề: cơ thể, động vật, Trái Đất' },
+    { name: 'Khởi động Tiếng Việt', subject: 'Tiếng Việt', type: '4 chủ đề, 48 câu' },
+    { name: 'English – Grade 2', subject: 'Tiếng Anh', type: '3 topics, 45 câu' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '200+ câu/môn, 4 cấp độ' },
+    { name: 'Vòng Quay May Mắn', subject: 'Toán + TV + TNXH', type: '4 chủ đề, có ô Bonus' },
+    { name: 'Bắn Bóng Bay', subject: 'Toán + TV', type: '2 chủ đề, luyện phản xạ' },
+    { name: 'Kéo Thả Sắp Xếp', subject: 'Toán + TV', type: '5 dạng bài kéo thả' },
   ],
   3: [
-    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '6 dạng, ∞ câu tự sinh' },
-    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '105 cặp, 6 chủ đề' },
-    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '~198 câu, 7 bộ đề' },
-    { name: 'Vòng Quay – Toán', subject: 'Toán KNTT', type: '15 câu' },
-    { name: 'Khởi động TV KNTT', subject: 'TV KNTT', type: '13 câu' },
-    { name: 'Khởi động TV Cánh Diều', subject: 'TV Cánh Diều', type: '14 câu' },
-    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '15 câu, 13 bài' },
-    { name: 'Công nghệ', subject: 'Công nghệ', type: '12 câu, 10 bài' },
-    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '8 câu, 8 chủ đề' },
-    { name: 'Vương Quốc Tri Thức', subject: 'Tổng hợp', type: '~66 câu, 4 cấp độ' },
+    { name: 'Ai Nhanh Hơn – Toán', subject: 'Toán', type: '6 dạng phép tính, chủ đề 13–16' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '6 chủ đề ghép cặp từ ngữ' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '200 câu, 3 mức độ' },
+    { name: 'Vòng Quay Khám Phá', subject: 'Toán', type: '15 bài, chủ đề 13–16' },
+    { name: 'Khởi động Tiếng Việt (Tuần 28–35)', subject: 'Tiếng Việt', type: '13 bài' },
+    { name: 'Khởi động Tiếng Việt (Chủ đề 16–19)', subject: 'Tiếng Việt', type: '14 bài' },
+    { name: 'Tự nhiên & Xã hội', subject: 'TNXH', type: '13 bài, chủ đề 5–6' },
+    { name: 'Công nghệ', subject: 'Công nghệ', type: '10 bài, phần 1 & 2' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '8 chủ đề kĩ năng sống' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '100 câu/môn, 4 cấp độ' },
   ],
   4: [
-    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '5 dạng, ∞ câu ngẫu nhiên' },
-    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '72 cặp, 4 chủ đề' },
-    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '80 câu, 8 bộ đề' },
-    { name: 'Vòng Quay Khám Phá', subject: 'Toán', type: '20 câu, 5 chủ đề' },
-    { name: 'TV – KNTT', subject: 'TV KNTT', type: '96 câu, 12 bài' },
-    { name: 'TV – Cánh Diều', subject: 'TV Cánh Diều', type: '56 câu, 7 bài' },
-    { name: 'Khoa học', subject: 'Khoa học', type: '48 câu, 6 chủ đề' },
-    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '40 câu, 5 chủ đề' },
-    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '32 câu, 4 chủ đề' },
-    { name: 'Vương Quốc Tri Thức', subject: 'Toán + TV', type: '40 câu, 3 cấp' },
+    { name: 'Ai Nhanh Hơn – Toán', subject: 'Toán', type: '8 trò chơi, 4 chủ đề' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '4 trò chơi, 4 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '8 bộ câu hỏi, tự nhập thêm' },
+    { name: 'Vòng Quay Khám Phá', subject: 'Toán', type: '4 chủ đề, quay ngẫu nhiên' },
+    { name: 'Khởi động Tiếng Việt (Tuần 28–35)', subject: 'Tiếng Việt', type: '12 bài học' },
+    { name: 'Khởi động Tiếng Việt (Chủ đề 7–9)', subject: 'Tiếng Việt', type: '7 bài học' },
+    { name: 'Khoa học', subject: 'Khoa học', type: '6 bài học' },
+    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '5 chủ đề' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '4 chủ đề' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: 'Toán + TV lớp 4, 4 cấp độ' },
   ],
   5: [
-    { name: 'Ai Nhanh Hơn', subject: 'Toán', type: '6 dạng, thi đua tổ' },
-    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: 'Đồng/trái nghĩa, 5 chủ đề' },
-    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '9 bộ câu hỏi' },
-    { name: 'Vòng Quay Khám Phá', subject: 'Toán KNTT', type: '13 bài học' },
-    { name: 'Game khởi động TV KNTT', subject: 'TV KNTT', type: '11 bài học' },
-    { name: 'Game khởi động TV Cánh Diều', subject: 'TV Cánh Diều', type: '7 bài học' },
-    { name: 'Khoa học', subject: 'Khoa học', type: '8 bài học' },
-    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '10 bài học' },
-    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: 'Tuần 28–35' },
-    { name: 'Vương Quốc Tri Thức', subject: 'Toán + TV', type: '200+ câu/môn, 4 cấp độ' },
-    { name: 'Kho Bài Giảng Điện Tử', subject: '7 môn', type: 'Google Drive' },
+    { name: 'Ai Nhanh Hơn – Toán', subject: 'Toán', type: '18 trò chơi, 8 chủ đề' },
+    { name: 'Nối Bạn Thân', subject: 'Tiếng Việt', type: '18 trò chơi, 9 chủ đề' },
+    { name: 'Đường Đua Tri Thức', subject: 'Toán + TV', type: '9 bộ câu hỏi, tự nhập thêm' },
+    { name: 'Vòng Quay Khám Phá', subject: 'Toán', type: '13 bài học, tuần 30–35' },
+    { name: 'Khởi động Tiếng Việt (Tuần 30–35)', subject: 'Tiếng Việt', type: '11 bài học' },
+    { name: 'Khởi động Tiếng Việt (Chủ đề 16–19)', subject: 'Tiếng Việt', type: '7 bài học' },
+    { name: 'Khoa học', subject: 'Khoa học', type: '9 bài học, chủ đề 5–6' },
+    { name: 'Lịch sử & Địa lý', subject: 'LS & ĐL', type: '10 bài học, chủ đề 4–6' },
+    { name: 'Hoạt động Trải nghiệm', subject: 'HĐTN', type: '6 tuần (28–35)' },
+    { name: 'Đấu Trường Tri Thức', subject: 'Toán + TV', type: '200+ câu/môn, 4 cấp độ' },
   ]
 };
 
@@ -2362,14 +2045,6 @@ const classSolid = {
   4: 'var(--lop4)',
   5: 'var(--lop5)',
 };
-
-// ===== LESSON TABS =====
-function switchLesson(lop) {
-  document.querySelectorAll('.lesson-tab').forEach(t => t.classList.remove('active'));
-  document.querySelector(`.lesson-tab[data-lop="${lop}"]`).classList.add('active');
-  document.querySelectorAll('.lesson-panel').forEach(p => p.classList.remove('active'));
-  document.getElementById(`lessonPanel${lop}`).classList.add('active');
-}
 
 // ===== ONG VÀNG MODAL =====
 function showOngModal() {
@@ -2426,6 +2101,443 @@ window.addEventListener('scroll', () => {
   if (window.scrollY > 400) btn.classList.add('show');
   else btn.classList.remove('show');
 });
+
+// ===== TIỆN ÍCH CHUNG =====
+const classLinks = {
+  1: 'https://hososotruonghoc.github.io/gametuongtaclop1',
+  2: 'https://hososotruonghoc.github.io/gametuongtaclop2',
+  3: 'https://hososotruonghoc.github.io/gametuongtaclop3',
+  4: 'https://hososotruonghoc.github.io/gametuongtaclop4',
+  5: 'https://hososotruonghoc.github.io/gametuongtac',
+};
+
+function rnd(a, b) { return Math.floor(Math.random() * (b - a + 1)) + a; }
+function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+function shuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+function boDau(s) {
+  return String(s).toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/\u0111/g, 'd');
+}
+
+// ===== TÌM KIẾM TRÒ CHƠI =====
+const searchIndex = [];
+for (const lop in gameData) {
+  gameData[lop].forEach(g => {
+    searchIndex.push({
+      lop: Number(lop),
+      name: g.name,
+      subject: g.subject,
+      type: g.type,
+      key: boDau(g.name + ' ' + g.subject + ' ' + g.type + ' lop ' + lop + ' khoi ' + lop),
+    });
+  });
+}
+
+function searchGames(q) {
+  const box = document.getElementById('gsResults');
+  const clr = document.getElementById('gsClear');
+  const tu = q.trim();
+  clr.classList.toggle('show', tu.length > 0);
+  if (tu.length < 1) { box.innerHTML = ''; return; }
+
+  const nq = boDau(tu);
+  const hit = searchIndex.filter(g => g.key.includes(nq));
+
+  if (!hit.length) {
+    box.innerHTML = '<div class="gs-empty">😕 Không tìm thấy trò chơi nào cho “' + tu + '”.<br>Thử từ khoá khác như: toán, vòng quay, khoa học…</div>';
+    return;
+  }
+
+  let html = '<div class="gs-count-line">Tìm thấy <strong>' + hit.length + '</strong> trò chơi</div>';
+  hit.slice(0, 14).forEach(g => {
+    html += '<a class="gs-item" href="' + classLinks[g.lop] + '" target="_blank" rel="noopener">' +
+      '<span class="gs-badge" style="background:' + classSolid[g.lop] + '">' + g.lop + '<small>LỚP</small></span>' +
+      '<span class="gs-info"><h4>' + g.name + '</h4><p>' + g.subject + ' • ' + g.type + '</p></span>' +
+      '<span class="gs-go">→</span></a>';
+  });
+  if (hit.length > 14) {
+    html += '<div class="gs-empty">… và ' + (hit.length - 14) + ' trò chơi khác. Hãy gõ cụ thể hơn nhé!</div>';
+  }
+  box.innerHTML = html;
+}
+
+function quickSearch(tu) {
+  const input = document.getElementById('gameSearch');
+  input.value = tu;
+  searchGames(tu);
+  document.getElementById('gsResults').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function clearSearch() {
+  const input = document.getElementById('gameSearch');
+  input.value = '';
+  searchGames('');
+  input.focus();
+}
+
+// ===== THỬ THÁCH 60 GIÂY =====
+function mcq(q, a, sai) { return { q: q, a: String(a), opts: shuffle([String(a)].concat(sai.map(String))) }; }
+
+function numQ(text, ans, step) {
+  step = step || 1;
+  const dec = (String(ans).split('.')[1] || '').length;
+  const set = new Set([ans]);
+  const deltas = [1, -1, 2, -2, 3, -3, 5, -5, 10, -10, 4, -4];
+  for (let i = 0; i < deltas.length && set.size < 4; i++) {
+    const v = +(ans + deltas[i] * step).toFixed(dec);
+    if (v >= 0) set.add(v);
+  }
+  let extra = 11;
+  while (set.size < 4) { set.add(+(ans + (extra++) * step).toFixed(dec)); }
+  const opts = [...set].map(v => String(v).replace('.', ','));
+  return { q: text, a: String(ans).replace('.', ','), opts: shuffle(opts) };
+}
+
+// Câu hỏi Toán tự sinh ngẫu nhiên theo từng khối lớp (không bao giờ lặp lại)
+function genToan(lop) {
+  if (lop === 1) {
+    switch (rnd(1, 5)) {
+      case 1: { const a = rnd(1, 10), b = rnd(1, 10); return numQ(a + ' + ' + b + ' = ?', a + b); }
+      case 2: { const a = rnd(6, 20), b = rnd(1, a - 1); return numQ(a + ' − ' + b + ' = ?', a - b); }
+      case 3: { const a = rnd(1, 5) * 10, b = rnd(1, 4) * 10; return numQ(a + ' + ' + b + ' = ?', a + b); }
+      case 4: { const n = rnd(1, 19); return numQ('Số liền sau của ' + n + ' là số nào?', n + 1); }
+      default: { const ns = shuffle([rnd(1, 9), rnd(10, 19), rnd(20, 49), rnd(50, 99)]);
+        return mcq('Trong các số sau, số nào lớn nhất?', Math.max.apply(null, ns), ns.filter(x => x !== Math.max.apply(null, ns))); }
+    }
+  }
+  if (lop === 2) {
+    switch (rnd(1, 5)) {
+      case 1: { const a = rnd(15, 60), b = rnd(15, 39); return numQ(a + ' + ' + b + ' = ?', a + b); }
+      case 2: { const a = rnd(41, 99), b = rnd(12, 39); return numQ(a + ' − ' + b + ' = ?', a - b); }
+      case 3: { const a = rnd(2, 5), b = rnd(2, 9); return numQ(a + ' × ' + b + ' = ?', a * b); }
+      case 4: { const a = rnd(2, 5), b = rnd(2, 9); return numQ((a * b) + ' : ' + a + ' = ?', b); }
+      default: { const n = rnd(2, 99); return numQ('Số liền trước của ' + n + ' là số nào?', n - 1); }
+    }
+  }
+  if (lop === 3) {
+    switch (rnd(1, 5)) {
+      case 1: { const a = rnd(6, 9), b = rnd(2, 9); return numQ(a + ' × ' + b + ' = ?', a * b); }
+      case 2: { const a = rnd(6, 9), b = rnd(2, 9); return numQ((a * b) + ' : ' + a + ' = ?', b); }
+      case 3: { const a = rnd(12, 49), b = rnd(2, 5); return numQ(a + ' × ' + b + ' = ?', a * b); }
+      case 4: { const b = rnd(3, 9), du = rnd(1, b - 1), t = rnd(2, 9); return numQ('Trong phép chia ' + (b * t + du) + ' : ' + b + ' , số dư là bao nhiêu?', du); }
+      default: { const x = rnd(5, 40), b = rnd(5, 30); return numQ('Tìm x, biết: x + ' + b + ' = ' + (x + b), x); }
+    }
+  }
+  if (lop === 4) {
+    switch (rnd(1, 5)) {
+      case 1: { const a = rnd(12, 45), b = rnd(11, 25); return numQ(a + ' × ' + b + ' = ?', a * b, 3); }
+      case 2: { const b = rnd(11, 24), t = rnd(3, 9); return numQ((b * t) + ' : ' + b + ' = ?', t); }
+      case 3: { const tb = rnd(12, 40), d1 = rnd(1, 8), d2 = rnd(1, 8);
+        return numQ('Trung bình cộng của ' + (tb - d1) + ' ; ' + (tb + d2) + ' và ' + (tb + d1 - d2) + ' là bao nhiêu?', tb); }
+      case 4: { const k = rnd(2, 6), a = rnd(1, 4), b = a + rnd(1, 5);
+        return mcq('Rút gọn phân số ' + (a * k) + '/' + (b * k) + ' ta được phân số nào?', a + '/' + b,
+          [(a + 1) + '/' + b, a + '/' + (b + 1), (a + 1) + '/' + (b + 1)]); }
+      default: { const km = rnd(2, 9); return numQ(km + ' km = ? m', km * 1000, 100); }
+    }
+  }
+  switch (rnd(1, 6)) {
+    case 1: { const a = +(rnd(11, 99) / 10).toFixed(1), b = +(rnd(11, 99) / 10).toFixed(1);
+      return numQ(String(a).replace('.', ',') + ' + ' + String(b).replace('.', ',') + ' = ?', +(a + b).toFixed(1), 0.1); }
+    case 2: { const a = +(rnd(21, 99) / 10).toFixed(1); return numQ(String(a).replace('.', ',') + ' × 10 = ?', +(a * 10).toFixed(0), 1); }
+    case 3: { const p = pick([10, 20, 25, 50]), n = pick([40, 60, 80, 120, 200]);
+      return numQ(p + '% của ' + n + ' là bao nhiêu?', n * p / 100, 2); }
+    case 4: { const r = rnd(3, 9), d = r + rnd(1, 6); return numQ('Hình chữ nhật có chiều dài ' + d + ' cm, chiều rộng ' + r + ' cm. Diện tích là bao nhiêu cm²?', d * r, 3); }
+    case 5: { const m = +(rnd(11, 99) / 10).toFixed(1); return numQ(String(m).replace('.', ',') + ' m = ? cm', Math.round(m * 100), 10); }
+    default: { const a = rnd(2, 9), b = rnd(2, 9), c = rnd(2, 9); return numQ('Hình hộp chữ nhật có ba kích thước ' + a + ' cm, ' + b + ' cm, ' + c + ' cm. Thể tích là bao nhiêu cm³?', a * b * c, 4); }
+  }
+}
+
+// Ngân hàng câu hỏi Tiếng Việt
+const bankTV = {
+  1: [
+    { q: 'Tiếng “trường” có âm đầu là gì?', a: 'tr', o: ['ch', 'th', 't'] },
+    { q: 'Từ nào dưới đây viết đúng chính tả?', a: 'nghỉ ngơi', o: ['ngỉ ngơi', 'nghĩ ngơi', 'ngĩ ngơi'] },
+    { q: 'Tiếng nào có vần “ươn”?', a: 'vườn', o: ['vuông', 'buồn', 'vâng'] },
+    { q: 'Từ trái nghĩa với “cao” là từ nào?', a: 'thấp', o: ['to', 'dài', 'rộng'] },
+    { q: 'Chữ cái nào đứng đầu bảng chữ cái tiếng Việt?', a: 'a', o: ['ă', 'b', 'ê'] },
+    { q: '“Ông bà, bố mẹ, anh chị” là những từ chỉ gì?', a: 'người trong gia đình', o: ['con vật', 'đồ vật', 'cây cối'] },
+    { q: 'Dấu câu nào thường đặt ở cuối câu kể?', a: 'dấu chấm', o: ['dấu phẩy', 'dấu chấm hỏi', 'dấu hai chấm'] },
+    { q: 'Con vật nào kêu “gâu gâu”?', a: 'con chó', o: ['con mèo', 'con gà', 'con vịt'] },
+  ],
+  2: [
+    { q: 'Từ nào dưới đây là từ chỉ hoạt động?', a: 'chạy', o: ['cái bàn', 'màu xanh', 'ngôi nhà'] },
+    { q: 'Từ trái nghĩa với “chăm chỉ” là từ nào?', a: 'lười biếng', o: ['siêng năng', 'cần cù', 'chịu khó'] },
+    { q: 'Trong câu “Bạn Lan quét sân.”, bộ phận trả lời câu hỏi “Ai?” là gì?', a: 'Bạn Lan', o: ['quét sân', 'sân', 'quét'] },
+    { q: 'Từ nào dưới đây viết đúng chính tả?', a: 'sạch sẽ', o: ['xạch sẽ', 'sạch xẽ', 'xạch xẽ'] },
+    { q: 'Dấu câu nào đặt ở cuối câu hỏi?', a: 'dấu chấm hỏi', o: ['dấu chấm', 'dấu phẩy', 'dấu chấm than'] },
+    { q: 'Từ nào là từ chỉ đặc điểm?', a: 'tròn', o: ['đọc', 'quyển sách', 'bơi'] },
+    { q: 'Từ trái nghĩa với “vui” là từ nào?', a: 'buồn', o: ['cười', 'thích', 'mừng'] },
+    { q: '“Học sinh” là từ chỉ gì?', a: 'người', o: ['đồ vật', 'con vật', 'hoạt động'] },
+  ],
+  3: [
+    { q: 'Trong câu “Trăng tròn như cái đĩa.”, từ nào là từ dùng để so sánh?', a: 'như', o: ['trăng', 'tròn', 'cái đĩa'] },
+    { q: 'Trong câu “Bạn Nam rất chăm chỉ.”, bộ phận “rất chăm chỉ” trả lời cho câu hỏi nào?', a: 'Thế nào?', o: ['Ai?', 'Làm gì?', 'Ở đâu?'] },
+    { q: 'Từ nào cùng nghĩa với “siêng năng”?', a: 'chăm chỉ', o: ['lười nhác', 'chậm chạp', 'ham chơi'] },
+    { q: 'Từ nào dưới đây viết đúng chính tả?', a: 'lấp lánh', o: ['nấp nánh', 'lấp nánh', 'nấp lánh'] },
+    { q: 'Câu “Ông Mặt Trời thức dậy.” đã dùng biện pháp gì?', a: 'nhân hoá', o: ['so sánh', 'liệt kê', 'điệp từ'] },
+    { q: 'Trong câu “Những chú chim hót líu lo.”, từ chỉ sự vật là từ nào?', a: 'chú chim', o: ['hót', 'líu lo', 'những'] },
+    { q: 'Từ trái nghĩa với “hẹp” là từ nào?', a: 'rộng', o: ['dài', 'cao', 'sâu'] },
+    { q: 'Từ nào dưới đây là từ láy?', a: 'long lanh', o: ['xe đạp', 'học tập', 'sách vở'] },
+  ],
+  4: [
+    { q: 'Từ nào dưới đây là danh từ?', a: 'học sinh', o: ['chạy', 'đẹp', 'nhanh nhẹn'] },
+    { q: 'Từ nào dưới đây là động từ?', a: 'suy nghĩ', o: ['ngôi trường', 'xanh biếc', 'chăm chỉ'] },
+    { q: '“Xanh biếc” thuộc từ loại nào?', a: 'tính từ', o: ['danh từ', 'động từ', 'đại từ'] },
+    { q: 'Câu khiến thường kết thúc bằng dấu câu nào?', a: 'dấu chấm than', o: ['dấu chấm hỏi', 'dấu hai chấm', 'dấu ngoặc kép'] },
+    { q: 'Trong câu “Đàn cò trắng bay lượn trên cánh đồng.”, chủ ngữ là bộ phận nào?', a: 'Đàn cò trắng', o: ['bay lượn', 'trên cánh đồng', 'cánh đồng'] },
+    { q: 'Từ nào dưới đây là từ láy?', a: 'lung linh', o: ['xe đạp', 'học tập', 'bàn ghế'] },
+    { q: 'Dấu ngoặc kép thường được dùng để làm gì?', a: 'đánh dấu lời nói trực tiếp', o: ['ngăn cách các vế câu', 'kết thúc câu kể', 'nối hai từ ghép'] },
+    { q: 'Từ nào trái nghĩa với “dũng cảm”?', a: 'hèn nhát', o: ['gan dạ', 'can đảm', 'anh hùng'] },
+  ],
+  5: [
+    { q: 'Câu ghép là câu có đặc điểm gì?', a: 'có hai cụm chủ – vị trở lên', o: ['chỉ có một cụm chủ – vị', 'không có chủ ngữ', 'luôn kết thúc bằng dấu chấm than'] },
+    { q: 'Từ nào dưới đây là đại từ?', a: 'chúng tôi', o: ['ngôi nhà', 'chạy nhanh', 'xanh tươi'] },
+    { q: 'Trong câu “Trời mưa nên đường trơn.”, quan hệ từ “nên” thể hiện quan hệ gì?', a: 'nguyên nhân – kết quả', o: ['tương phản', 'tăng tiến', 'lựa chọn'] },
+    { q: 'Từ nào đồng nghĩa với “kiên cường”?', a: 'bất khuất', o: ['nhút nhát', 'yếu ớt', 'lười biếng'] },
+    { q: 'Câu thơ “Mặt trời xuống biển như hòn lửa” dùng biện pháp gì?', a: 'so sánh', o: ['nhân hoá', 'điệp ngữ', 'ẩn dụ'] },
+    { q: 'Từ nào trái nghĩa với “đoàn kết”?', a: 'chia rẽ', o: ['gắn bó', 'hợp tác', 'thân thiết'] },
+    { q: '“Bác sĩ, kĩ sư, giáo viên” là những từ chỉ gì?', a: 'nghề nghiệp', o: ['nơi chốn', 'đồ dùng', 'tính chất'] },
+    { q: 'Dấu gạch ngang được dùng để làm gì?', a: 'đánh dấu lời nói trực tiếp của nhân vật', o: ['kết thúc câu hỏi', 'ngăn cách chủ ngữ và vị ngữ', 'viết hoa tên riêng'] },
+  ],
+};
+
+// Ngân hàng câu hỏi Khám phá (TNXH – Khoa học – Lịch sử & Địa lí)
+const bankKP = {
+  1: [
+    { q: 'Bộ phận nào của cơ thể giúp em nhìn thấy mọi vật?', a: 'mắt', o: ['tai', 'mũi', 'tay'] },
+    { q: 'Mỗi ngày em nên đánh răng ít nhất mấy lần?', a: '2 lần', o: ['1 lần', '3 ngày 1 lần', 'không cần đánh răng'] },
+    { q: 'Con vật nào dưới đây biết bay?', a: 'chim bồ câu', o: ['con rùa', 'con mèo', 'cá chép'] },
+    { q: 'Cây xanh cần gì để sống và lớn lên?', a: 'nước, ánh sáng và không khí', o: ['chỉ cần đất', 'chỉ cần bóng tối', 'không cần gì cả'] },
+    { q: 'Khi qua đường, em phải đi ở đâu?', a: 'vạch kẻ dành cho người đi bộ', o: ['giữa lòng đường', 'chỗ nào cũng được', 'chạy thật nhanh qua đường'] },
+    { q: 'Một tuần lễ có mấy ngày?', a: '7 ngày', o: ['5 ngày', '6 ngày', '10 ngày'] },
+    { q: 'Buổi sáng, Mặt Trời mọc ở hướng nào?', a: 'hướng Đông', o: ['hướng Tây', 'hướng Nam', 'hướng Bắc'] },
+    { q: 'Bộ phận nào của cây hút nước từ trong đất?', a: 'rễ', o: ['lá', 'hoa', 'quả'] },
+  ],
+  2: [
+    { q: 'Cơ quan tiêu hoá bắt đầu từ bộ phận nào?', a: 'miệng', o: ['dạ dày', 'ruột non', 'gan'] },
+    { q: 'Con vật nào dưới đây sống dưới nước?', a: 'cá', o: ['gà', 'trâu', 'chim sẻ'] },
+    { q: 'Trái Đất chuyển động quanh vật nào?', a: 'Mặt Trời', o: ['Mặt Trăng', 'ngôi sao Bắc Đẩu', 'sao Hoả'] },
+    { q: 'Loại thức ăn nào rất tốt cho sức khoẻ của em?', a: 'rau xanh và trái cây', o: ['bánh kẹo ngọt', 'nước ngọt có ga', 'đồ chiên rán nhiều dầu'] },
+    { q: 'Con vật nào dưới đây đẻ trứng?', a: 'gà', o: ['chó', 'mèo', 'trâu'] },
+    { q: 'Bộ phận nào giúp em ngửi được mùi thơm?', a: 'mũi', o: ['tai', 'lưỡi', 'mắt'] },
+    { q: 'Khi bị đứt tay, em nên làm gì?', a: 'rửa sạch vết thương và báo người lớn', o: ['giấu không cho ai biết', 'tiếp tục chơi bình thường', 'bôi đất lên vết thương'] },
+    { q: 'Cây nào dưới đây cho ta quả để ăn?', a: 'cây xoài', o: ['cây rau muống', 'cây lúa', 'cây tre'] },
+  ],
+  3: [
+    { q: 'Cơ quan nào bơm máu đi khắp cơ thể?', a: 'tim', o: ['phổi', 'dạ dày', 'thận'] },
+    { q: 'Trái Đất tự quay quanh mình một vòng hết bao lâu?', a: 'khoảng 1 ngày', o: ['1 tuần', '1 tháng', '1 năm'] },
+    { q: 'Cơ quan bài tiết nước tiểu gồm những bộ phận chính nào?', a: 'hai quả thận và bóng đái', o: ['tim và phổi', 'dạ dày và ruột', 'não và tuỷ sống'] },
+    { q: 'Vật nào dưới đây dẫn điện?', a: 'dây đồng', o: ['thanh gỗ khô', 'chiếc thìa nhựa', 'cốc thuỷ tinh'] },
+    { q: 'Việc làm nào dưới đây là an toàn khi sử dụng điện?', a: 'không chạm tay ướt vào ổ điện', o: ['cắm que sắt vào ổ điện', 'kéo dây điện bị hở', 'chơi gần trạm biến áp'] },
+    { q: 'Một năm có mấy tháng?', a: '12 tháng', o: ['10 tháng', '11 tháng', '24 tháng'] },
+    { q: 'Cây có hoa thường sinh sản bằng gì?', a: 'hạt', o: ['lá', 'rễ', 'thân'] },
+    { q: 'Loài vật nào dưới đây là động vật có vú?', a: 'cá heo', o: ['cá chép', 'con ếch', 'con rắn'] },
+  ],
+  4: [
+    { q: 'Nước có thể tồn tại ở mấy thể?', a: '3 thể: rắn, lỏng, khí', o: ['1 thể', '2 thể', '4 thể'] },
+    { q: 'Thành phần nào của không khí duy trì sự cháy?', a: 'khí ô-xi', o: ['khí ni-tơ', 'hơi nước', 'khí các-bô-níc'] },
+    { q: 'Ánh sáng truyền đi theo đường nào?', a: 'đường thẳng', o: ['đường cong', 'đường gấp khúc', 'đường tròn'] },
+    { q: 'Âm thanh có thể truyền qua những chất nào?', a: 'chất rắn, chất lỏng và chất khí', o: ['chỉ chất khí', 'chỉ chất rắn', 'không truyền qua chất nào'] },
+    { q: 'Nhà nước đầu tiên của nước ta có tên là gì?', a: 'Văn Lang', o: ['Đại Việt', 'Âu Lạc', 'Vạn Xuân'] },
+    { q: 'Kinh đô của nước Văn Lang đặt ở đâu?', a: 'Phong Châu (Phú Thọ ngày nay)', o: ['Cổ Loa (Hà Nội)', 'Hoa Lư (Ninh Bình)', 'Phú Xuân (Huế)'] },
+    { q: 'Dãy núi nào cao và đồ sộ nhất nước ta?', a: 'Hoàng Liên Sơn', o: ['Trường Sơn', 'Tam Đảo', 'Ba Vì'] },
+    { q: 'Đỉnh núi cao nhất Việt Nam là đỉnh nào?', a: 'Phan-xi-păng', o: ['Bạch Mã', 'Tây Côn Lĩnh', 'Ngọc Linh'] },
+  ],
+  5: [
+    { q: 'Cơ quan sinh sản của thực vật có hoa là bộ phận nào?', a: 'hoa', o: ['rễ', 'thân', 'lá'] },
+    { q: 'Sự biến đổi hoá học là gì?', a: 'chất này biến đổi thành chất khác', o: ['chất chỉ thay đổi hình dạng', 'chất chỉ thay đổi kích thước', 'chất chuyển từ nóng sang lạnh'] },
+    { q: 'Nguồn năng lượng nào dưới đây là năng lượng sạch và gần như vô tận?', a: 'năng lượng mặt trời', o: ['than đá', 'dầu mỏ', 'khí đốt'] },
+    { q: 'Bác Hồ đọc Tuyên ngôn Độc lập, khai sinh nước Việt Nam Dân chủ Cộng hoà vào ngày nào?', a: '2 – 9 – 1945', o: ['19 – 8 – 1945', '7 – 5 – 1954', '30 – 4 – 1975'] },
+    { q: 'Chiến thắng Điện Biên Phủ diễn ra vào năm nào?', a: '1954', o: ['1945', '1968', '1975'] },
+    { q: 'Đất nước ta được thống nhất vào năm nào?', a: '1975', o: ['1954', '1945', '1986'] },
+    { q: 'Vùng biển nước ta là một bộ phận của biển nào?', a: 'Biển Đông', o: ['Biển Đỏ', 'Biển Đen', 'Địa Trung Hải'] },
+    { q: 'Nước láng giềng nằm ở phía Bắc nước ta là nước nào?', a: 'Trung Quốc', o: ['Lào', 'Cam-pu-chia', 'Thái Lan'] },
+  ],
+};
+
+let qzLop = 5, qzTopic = 'all';
+let qzScore = 0, qzRight = 0, qzStreak = 0, qzBest = 0, qzIdx = 0, qzLeft = 60;
+let qzTimer = null, qzNextTimer = null, qzQueue = {};
+
+function pickClass(lop) {
+  qzLop = lop;
+  document.querySelectorAll('#qzClassOpts .qz-opt').forEach(b => {
+    const on = Number(b.dataset.lop) === lop;
+    b.classList.toggle('on', on);
+    b.style.background = on ? classSolid[lop] : '';
+  });
+}
+
+function pickTopic(mon) {
+  qzTopic = mon;
+  document.querySelectorAll('#qzTopicOpts .qz-opt').forEach(b => {
+    const on = b.dataset.mon === mon;
+    b.classList.toggle('on', on);
+    b.style.background = on ? '#1a73e8' : '';
+  });
+}
+
+function qzShow(id) {
+  ['quizSetup', 'quizPlay', 'quizEnd'].forEach(x => {
+    document.getElementById(x).classList.toggle('qz-hide', x !== id);
+  });
+}
+
+function backToSetup() {
+  clearInterval(qzTimer);
+  clearTimeout(qzNextTimer);
+  qzShow('quizSetup');
+}
+
+function startQuiz() {
+  clearInterval(qzTimer);
+  clearTimeout(qzNextTimer);
+  qzScore = 0; qzRight = 0; qzStreak = 0; qzBest = 0; qzIdx = 0; qzLeft = 60;
+  qzQueue = { tv: shuffle(bankTV[qzLop]), kp: shuffle(bankKP[qzLop]) };
+  document.getElementById('qzScore').textContent = '0';
+  qzShow('quizPlay');
+  updateTime();
+  qzTimer = setInterval(() => {
+    qzLeft--;
+    updateTime();
+    if (qzLeft <= 0) endQuiz();
+  }, 1000);
+  nextQuestion();
+}
+
+function updateTime() {
+  document.getElementById('qzTime').textContent = qzLeft;
+  document.getElementById('qzFill').style.width = (qzLeft / 60 * 100) + '%';
+  const low = qzLeft <= 10;
+  document.getElementById('qzTimeChip').classList.toggle('low', low);
+  document.getElementById('qzFill').classList.toggle('low', low);
+}
+
+function layCauHoi() {
+  let mon = qzTopic;
+  if (mon === 'all') mon = pick(['toan', 'tv', 'kp']);
+  if (mon === 'toan') return genToan(qzLop);
+  const kho = qzQueue[mon];
+  if (!kho.length) qzQueue[mon] = shuffle(mon === 'tv' ? bankTV[qzLop] : bankKP[qzLop]);
+  const c = qzQueue[mon].shift();
+  return mcq(c.q, c.a, c.o);
+}
+
+function nextQuestion() {
+  qzIdx++;
+  document.getElementById('qzIndex').textContent = qzIdx;
+  document.getElementById('qzNote').textContent = '';
+  document.getElementById('qzNote').className = 'qz-note';
+
+  const cau = layCauHoi();
+  document.getElementById('qzQuestion').textContent = cau.q;
+  const box = document.getElementById('qzAnswers');
+  box.innerHTML = '';
+  cau.opts.forEach(op => {
+    const b = document.createElement('button');
+    b.className = 'qz-ans';
+    b.textContent = op;
+    b.onclick = () => traLoi(b, op === cau.a, cau.a);
+    box.appendChild(b);
+  });
+}
+
+function traLoi(btn, dung, dapAn) {
+  const nut = document.querySelectorAll('#qzAnswers .qz-ans');
+  nut.forEach(b => {
+    b.disabled = true;
+    if (b.textContent === dapAn) b.classList.add('right');
+  });
+  const note = document.getElementById('qzNote');
+
+  if (dung) {
+    qzRight++;
+    qzStreak++;
+    if (qzStreak > qzBest) qzBest = qzStreak;
+    qzScore += 10 + (qzStreak >= 3 ? 5 : 0);
+    note.textContent = qzStreak >= 3 ? '🔥 Tuyệt vời! Chuỗi ' + qzStreak + ' câu đúng (+5 điểm thưởng)' : '✅ Chính xác! +10 điểm';
+    note.className = 'qz-note ok';
+  } else {
+    qzStreak = 0;
+    btn.classList.add('wrong');
+    note.textContent = '❌ Chưa đúng. Đáp án là: ' + dapAn;
+    note.className = 'qz-note no';
+  }
+  document.getElementById('qzScore').textContent = qzScore;
+  qzNextTimer = setTimeout(() => { if (qzLeft > 0) nextQuestion(); }, dung ? 750 : 1600);
+}
+
+function endQuiz() {
+  clearInterval(qzTimer);
+  clearTimeout(qzNextTimer);
+  qzLeft = 0;
+  updateTime();
+
+  let icon = '🌱', title = 'Cố lên em nhé!', sub = 'Luyện thêm vài lần nữa là em sẽ tiến bộ ngay thôi!';
+  if (qzScore >= 200) { icon = '🏆'; title = 'Xuất sắc!'; sub = 'Em thật giỏi – xứng đáng là Trạng nguyên nhí!'; }
+  else if (qzScore >= 140) { icon = '🥇'; title = 'Rất giỏi!'; sub = 'Chỉ còn một chút nữa là chạm tới danh hiệu Xuất sắc!'; }
+  else if (qzScore >= 80) { icon = '🥈'; title = 'Khá lắm!'; sub = 'Em đã làm rất tốt, hãy thử lại để phá kỉ lục nhé!'; }
+
+  document.getElementById('qzEndIcon').textContent = icon;
+  document.getElementById('qzEndTitle').textContent = title;
+  document.getElementById('qzEndSub').textContent = sub;
+  document.getElementById('qzFinalScore').textContent = qzScore;
+  document.getElementById('qzFinalRight').textContent = qzRight;
+  document.getElementById('qzFinalStreak').textContent = qzBest;
+  qzShow('quizEnd');
+}
+
+// ===== EM CÓ BIẾT =====
+const factList = [
+  { e: '🔢', t: 'Toán học', c: '#1565C0', p: 'Muốn biết một số có chia hết cho 9 hay không, em chỉ cần cộng tất cả các chữ số của nó lại. Nếu tổng đó chia hết cho 9 thì số ban đầu cũng chia hết cho 9.' },
+  { e: '📐', t: 'Toán học', c: '#1565C0', p: 'Hình vuông chính là một hình chữ nhật đặc biệt – hình chữ nhật có bốn cạnh bằng nhau.' },
+  { e: '⭕', t: 'Toán học', c: '#1565C0', p: 'Chu vi hình tròn được tính bằng đường kính nhân với 3,14. Số 3,14 này được gọi là số pi.' },
+  { e: '0️⃣', t: 'Toán học', c: '#1565C0', p: 'Số 0 được người Ấn Độ sử dụng như một chữ số từ hơn 1.500 năm trước, và đó là một trong những phát minh quan trọng nhất của toán học.' },
+  { e: '📖', t: 'Tiếng Việt', c: '#2E7D32', p: 'Bảng chữ cái tiếng Việt có 29 chữ cái, còn tiếng Anh chỉ có 26 chữ cái.' },
+  { e: '🎵', t: 'Tiếng Việt', c: '#2E7D32', p: 'Tiếng Việt có 6 thanh điệu: ngang, huyền, sắc, hỏi, ngã, nặng. Chính các thanh điệu làm cho tiếng Việt nghe như một bản nhạc.' },
+  { e: '✍️', t: 'Tiếng Việt', c: '#2E7D32', p: 'Truyện Kiều của đại thi hào Nguyễn Du dài 3.254 câu thơ, được viết theo thể thơ lục bát.' },
+  { e: '🔁', t: 'Tiếng Việt', c: '#2E7D32', p: 'Từ láy là từ có các tiếng lặp lại âm đầu, vần hoặc cả hai, ví dụ như: lung linh, xanh xao, rì rào.' },
+  { e: '💧', t: 'Khoa học', c: '#00838F', p: 'Nước chiếm khoảng 70% khối lượng cơ thể người. Vì vậy mỗi ngày em cần uống đủ nước để cơ thể khoẻ mạnh.' },
+  { e: '☀️', t: 'Khoa học', c: '#00838F', p: 'Ánh sáng đi từ Mặt Trời đến Trái Đất mất khoảng 8 phút, dù nó chạy nhanh nhất vũ trụ.' },
+  { e: '🦇', t: 'Khoa học', c: '#00838F', p: 'Dơi là loài thú duy nhất trên thế giới biết bay thật sự bằng đôi cánh của mình.' },
+  { e: '❤️', t: 'Khoa học', c: '#00838F', p: 'Trái tim của em đập khoảng 100.000 lần mỗi ngày để đưa máu đi nuôi toàn bộ cơ thể.' },
+  { e: '🌈', t: 'Khoa học', c: '#00838F', p: 'Cầu vồng luôn có 7 màu theo thứ tự: đỏ, cam, vàng, lục, lam, chàm, tím.' },
+  { e: '🌍', t: 'Khoa học', c: '#00838F', p: 'Trái Đất quay quanh Mặt Trời hết 365 ngày và khoảng 6 giờ. Chính 6 giờ dư ấy khiến cứ 4 năm lại có một năm nhuận với tháng 2 có 29 ngày.' },
+  { e: '🌱', t: 'Khoa học', c: '#00838F', p: 'Ban ngày, cây xanh quang hợp và nhả ra khí ô-xi – thứ khí mà con người và động vật cần để thở.' },
+  { e: '🇻🇳', t: 'Lịch sử – Địa lí', c: '#BF360C', p: 'Việt Nam là ngôi nhà chung của 54 dân tộc anh em, mỗi dân tộc có tiếng nói và trang phục riêng.' },
+  { e: '⛰️', t: 'Lịch sử – Địa lí', c: '#BF360C', p: 'Đỉnh Phan-xi-păng cao 3.143 mét, được mệnh danh là “Nóc nhà Đông Dương”.' },
+  { e: '🏝️', t: 'Lịch sử – Địa lí', c: '#BF360C', p: 'Vịnh Hạ Long có gần 2.000 hòn đảo lớn nhỏ và đã hai lần được UNESCO công nhận là Di sản thiên nhiên thế giới.' },
+  { e: '🌊', t: 'Lịch sử – Địa lí', c: '#BF360C', p: 'Sông Mê Công chảy qua 6 quốc gia trước khi đổ ra Biển Đông ở nước ta, tạo nên đồng bằng sông Cửu Long trù phú.' },
+  { e: '🏛️', t: 'Lịch sử – Địa lí', c: '#BF360C', p: 'Văn Miếu – Quốc Tử Giám ở Hà Nội được coi là trường đại học đầu tiên của nước ta.' },
+  { e: '🧠', t: 'Mẹo học tập', c: '#7B1FA2', p: 'Học 25 phút rồi nghỉ 5 phút sẽ giúp em nhớ bài lâu hơn là ngồi học liên tục hàng giờ.' },
+  { e: '🗣️', t: 'Mẹo học tập', c: '#7B1FA2', p: 'Đọc to bài học giúp em ghi nhớ tốt hơn đọc thầm, vì em vừa nhìn, vừa nghe được kiến thức.' },
+  { e: '😴', t: 'Mẹo học tập', c: '#7B1FA2', p: 'Học sinh tiểu học cần ngủ đủ 9 – 10 tiếng mỗi đêm. Khi ngủ, bộ não sẽ sắp xếp lại những gì em đã học trong ngày.' },
+  { e: '👩‍🏫', t: 'Mẹo học tập', c: '#7B1FA2', p: 'Cách học hiệu quả nhất là giảng lại bài cho người khác nghe. Nếu em giảng được cho bạn hiểu, nghĩa là em đã thực sự hiểu bài.' },
+];
+
+function shuffleFacts() {
+  const grid = document.getElementById('factGrid');
+  const ba = shuffle(factList).slice(0, 3);
+  grid.innerHTML = ba.map(f =>
+    '<div class="fact-card" style="border-top-color:' + f.c + '">' +
+      '<div class="fact-top"><span class="fact-emoji">' + f.e + '</span>' +
+      '<span class="fact-tag" style="color:' + f.c + '">' + f.t + '</span></div>' +
+      '<p>' + f.p + '</p></div>'
+  ).join('');
+}
+
+// ===== KHỞI TẠO =====
+pickClass(5);
+pickTopic('all');
+shuffleFacts();
 
 </script>
 </body>
